@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Home from './components/Home';
 import Cakes from './components/Cakes';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
-import { userActions } from './store/store';
-import { tokenActions } from './store/store';
+import { cakesActions } from './store/store';
 import { useDispatch } from 'react-redux';
 
 function App() {
@@ -20,9 +19,9 @@ interface Cakes {
   Veg: Boolean
 }
 
-const [cakes, setCakes] = useState<Cakes[]>([]);
-const token = useSelector((state:RootState) => state.token.token)
-const user = useSelector((state:RootState) => state.user.user)
+//const cakes = useSelector((state:RootState) => state.cakes.cakes)
+// const token = useSelector((state:RootState) => state.token.token)
+// const user = useSelector((state:RootState) => state.user.user)
 const dispatch = useDispatch();
 
 useEffect(() => {
@@ -43,7 +42,8 @@ useEffect(() => {
       }
     })
     .then((data) => {
-      setCakes(data)
+      console.log('Fetched data:', data);
+      dispatch(cakesActions.setCakes(data))
     })
     .catch(error => {
       console.error('Error fetching products', error)
@@ -73,13 +73,13 @@ useEffect(() => {
 // if(token){
 //   fetchCakes()
 // }
-}, [])
+}, [dispatch])
 
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/cakes' element={<Cakes cakes={cakes} />}></Route>
+        <Route path='/cakes' element={<Cakes />}></Route>
       </Routes>
     </div>
   );

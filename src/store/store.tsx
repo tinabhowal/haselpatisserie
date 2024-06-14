@@ -1,14 +1,7 @@
 import { createSlice, configureStore, PayloadAction, combineReducers } from "@reduxjs/toolkit";
-
-interface User {
-    user : {
-        Username: string;
-        Password: string;
-        Email: string;
-        Cart: string[];
-        GoogleID: string
-    } | null;
-}
+import { User } from "../types/types";
+import { Token } from "../types/types";
+import { Cake } from "../types/types";
 
 const userFomLocalStorage = localStorage.getItem("user");
 
@@ -32,9 +25,7 @@ const userSlice = createSlice({
 })
 
 
-interface Token {
-    token : string | null
-}
+
 
 const tokenFromLocalStorage = localStorage.getItem('token');
 
@@ -59,21 +50,43 @@ const tokenSlice = createSlice({
 
 
 
+  interface CakeState {
+    cakes: Cake[] 
+  }
+
+  const initialCakeState : CakeState = {
+    cakes: []
+  }
+
+  const cakesSlice = createSlice({
+    name: 'cakes',
+    initialState: initialCakeState,
+    reducers: {
+        setCakes: (state, action:PayloadAction<Cake[]>) => {
+            state.cakes = action.payload
+        }
+    }
+  })
+
 
 const store = configureStore({
     reducer: {
         user: userSlice.reducer,
-        token: tokenSlice.reducer}
+        token: tokenSlice.reducer,
+        cakes: cakesSlice.reducer
+    }
 })
 
 export default store;
 
 export const userActions = userSlice.actions;
 export const tokenActions = tokenSlice.actions;
+export const cakesActions = cakesSlice.actions;
 
 const rootReducer = combineReducers({
     user: userSlice.reducer,
-    token: tokenSlice.reducer
+    token: tokenSlice.reducer,
+    cakes: cakesSlice.reducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

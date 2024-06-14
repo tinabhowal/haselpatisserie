@@ -1,26 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
-interface CakesType {
-  Name: string,
-  Description: string,
-  Ingredients: string[],
-  Theme: string[],
-  ImagePath: string,
-  Veg: Boolean
-}
+const Cakes = () => {
+  const cakes = useSelector((state:RootState) => state.cakes.cakes);
+  console.log('Cakes from Redux store:', cakes);
 
-interface CakesProp {
-  cakes : CakesType[]
-}
-
-
-
-const Cakes = (props: CakesProp) => {
+  if(!cakes){
+    return <div>Loading...</div>
+  }
   return (
     <div>
       <h2>Cakes</h2>
       <ul>
-      {props.cakes.map((cake) => (
+      {cakes.map((cake) => (
         <li key={cake.Name}>
           <p>{cake.Name}</p>
           <img src={cake.ImagePath} alt={cake.Name} />
