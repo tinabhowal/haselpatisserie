@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/components/Navigation", "src/components/Home/Home.tsx"  ]
 }

@@ -1,0 +1,43 @@
+h2 {
+    font-family:'Montaga, serif'
+}
+
+.descriptionAndProduct {
+    display: flex;
+    flex-direction: row;
+}
+
+.description {
+    height: 50vh;
+    width: 50vw;
+    background-color: blueviolet;
+}
+
+.product img{
+    height: 50vh;
+    width: 50vw; 
+}
+
+
+
+.carousal{
+    height: 500vh;
+}
+
+.contentContainer{
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-gap: 3vw;
+    padding: 0 4rem 0 4rem;
+}

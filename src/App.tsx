@@ -1,23 +1,17 @@
 import React, { useEffect } from 'react';
-import Home from './components/Home';
-import Cakes from './components/Cakes';
+import Home from './components/Home/Home';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from './store/store';
+// import { useSelector } from 'react-redux';
+// import { RootState } from './store/store';
 import { cakesActions } from './store/store';
 import { useDispatch } from 'react-redux';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 
 function App() {
 
-interface Cakes {
-  Name: string,
-  Description: string,
-  Ingredients: string[],
-  Theme: string[],
-  ImagePath: string,
-  Veg: Boolean
-}
+
 
 //const cakes = useSelector((state:RootState) => state.cakes.cakes)
 // const token = useSelector((state:RootState) => state.token.token)
@@ -79,7 +73,8 @@ useEffect(() => {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/cakes' element={<Cakes />}></Route>
+        <Route path='/about' element={<About />}></Route>
+        <Route path='/contact' element={<Contact />}></Route>
       </Routes>
     </div>
   );
