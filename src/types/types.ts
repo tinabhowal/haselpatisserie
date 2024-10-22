@@ -17,8 +17,31 @@ export interface Cake {
     Name: string,
     Description: string,
     Ingredients: string[],
-    Theme: string[],
+    // Theme: string[],
     ImagePath: string,
-    Veg: Boolean
+    Veg: boolean,
+    BestSeller: boolean,
+    Category: string,
+    ul: {
+        img1: string;
+        img2: string;
+        img3: string;
+    };
 
+}
+
+
+export  interface productType {
+    product: {
+        img: string;
+        ul: {
+            img1: string;
+            img2: string;
+            img3: string;
+        };
+        title: string;
+        description: string;
+        bestseller: boolean
+    };
+    onClose: () => void
 }

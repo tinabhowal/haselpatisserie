@@ -8,6 +8,8 @@ import { cakesActions } from './store/store';
 import { useDispatch } from 'react-redux';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+import About2 from './components/About2/About2';
+
 
 function App() {
 
@@ -73,7 +75,7 @@ useEffect(() => {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/about' element={<About />}></Route>
+        <Route path='/about' element={<About2 />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
       </Routes>
     </div>

@@ -1,13 +1,22 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation';
+import './Contact.css';
+import { RootState } from '../../store/store';
+import { useSelector } from 'react-redux';
 
 const Contact = () => {
+  const cakesFromStore = useSelector((state:RootState) => state.cakes.cakes);
+
   return (
-    <div>
+    <div className='contactParentDiv'>
         <Navigation />
-    <div style={{height: '100vh', marginTop: '300px'}}>Contact</div>
+        
+    
+    <div>
+
+    </div>
     </div>
   )
 }
 
-export default Contact
+export default Contact;

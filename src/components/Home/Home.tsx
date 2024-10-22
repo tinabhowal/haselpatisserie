@@ -7,15 +7,15 @@ import './Home.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import img1 from '../../images/brent-ninaber-r98McHBXGN8-unsplash.jpg';
-import img2 from '../../images/pexels-apoteosico-706134429-18136631.jpg';
-
+import img1 from "../../images/homeBG.JPG";
+import img2 from '../../images/donuts.jpg';
 import { motion, useInView} from 'framer-motion';
+
 
 const Home = () => {
   
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -23,7 +23,8 @@ const Home = () => {
     autoplaySpeed: 3000,
     fade: true,
     speed: 2000,
-    waitForAnimate: false
+    waitForAnimate: false,
+    arrows: false
   };
 
   const slides = [
@@ -50,7 +51,7 @@ const Home = () => {
     <div className='homeDiv'>
       <section className="header" style={{padding:0}}>
         <Navigation />
-        <Slider {...settings}>
+        {/* <Slider {...settings}>
           {slides.map((slide, index) => (
             <div key={index} className="slide">
               <div
@@ -61,7 +62,8 @@ const Home = () => {
               </div>
             </div>
           ))}
-        </Slider>
+        </Slider> */}
+        <div className='background' style={{ backgroundImage: `url(${img1})` }}>first paragh</div>
       </section>
 
 
@@ -74,7 +76,8 @@ const Home = () => {
 
             initial={{opacity:0, y: 200}}
             whileInView={{opacity: 1, y:0, }}
-            transition={{duration:0.9, ease: 'easeInOut'}}            
+            transition={{duration:0.9, ease: 'easeInOut'}}    
+            viewport={{ once: false, amount: 0.1 }}        
         >
           {/* <section style={{height: '500vh'}}> 
            <ProductValues /> */}

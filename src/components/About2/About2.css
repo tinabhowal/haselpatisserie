@@ -1,0 +1,103 @@
+
+.about2Page{
+    overflow-x: hidden;
+    background-image: url('../../images/freepik__retouch__84134.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #FFF0E5;
+}
+
+  .aboutTop{
+    max-height: 100vh;
+    max-width: 100vw;
+    /* background-color:#C1E1EC; */
+    /* background: linear-gradient(180deg, #FADADD, #FFFFFF); */
+    padding: 150px 0 0 0;
+    background-image: url('../../images/freepik__retouch__84134.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #FFF0E5;
+    margin-bottom: 20px;
+    background-position: center;
+    object-fit: cover;
+}
+
+  
+  .first-text {
+    font-size: 2rem;
+    /* overflow: hidden;  */
+    color: #AA836C;
+  }
+  
+  .second-text {
+    /* text-align: center; */
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #AA836C;
+  }
+  
+
+  .aboutMiddle{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: #FFF0E5;
+    padding: 0;
+    /* background: linear-gradient(360deg, #FADADD, #FFFFFF); */
+}
+  
+  .image-container {
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .scaling-image {
+    width: 80%;
+    height: 100%;
+  }
+  
+
+.middleText{
+    white-space: wrap;
+    width: 300px;  
+    height: auto;
+}
+
+.about2FeedbackSection{
+  /* background: linear-gradient(360deg, #cee5ed, #FFFFFF); */
+  background: linear-gradient(180deg, #FFF0E5, #FFFFFF);
+  
+}
+
+.scrollComponent{
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .aboutTop {
+      background-position: top; 
+      padding: 100px 0 0 0; 
+  }
+
+  .scrollComponent{
+    min-height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+

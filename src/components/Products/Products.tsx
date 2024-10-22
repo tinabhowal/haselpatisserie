@@ -1,32 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+import { RootState } from "../../store/store";
+import { useSelector } from "react-redux";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "./Products.css";
 import { motion, AnimatePresence } from "framer-motion";
-import pic1WebP from "../../images/umesh-soni--gyo40AXZ_U-unsplash.webp";
-import pic2WebP from "../../images/umesh-soni--gyo40AXZ_U-unsplash.webp";
-import pic3WebP from "../../images/quin-engle-QRpNjzEX1eU-unsplash.webp";
-import pic4WebP from "../../images/tetiana-bykovets-L3q11Xtvsfs-unsplash.webp";
-import pic5WebP from "../../images/pexels-marcia-salido-346903577-14133143.webp";
-import pic6WebP from "../../images/tetiana-bykovets-L3q11Xtvsfs-unsplash.webp";
 import ProductDetails from "../ProductDetails/ProductDetails";
-
+import { productType } from "../../types/types";
 const Products = () => {
 
-  interface productType {
-    product: {
-        img: string;
-        ul: {
-            img1: string;
-            img2: string;
-            img3: string;
-        };
-        title: string;
-        description: string;
-        bestseller: boolean
-    };
-    onClose: () => void
-}
+
 
   const [showModal, setShowModal] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<productType | null>(null);
@@ -57,81 +40,11 @@ const Products = () => {
     },
   };
 
-  const productTiles = [
-    {
-      img: pic1WebP,
-      ul: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      title: "Cup Cake",
-      category: "Cup Cake",
-      description: "hggjhghkhjgkjhlkjhlkh",
-      bestseller: false
-    },
-    {
-      img: pic2WebP,
-      ul: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      title: "Energy Bar",
-      category: "Energy Bar",
-      description: "hggjhghk",
-      bestseller: false
-    },
-    {
-      img: pic3WebP,
-      ul: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      title: "Birthday Cake",
-      category: "Birthday Cake",
-      description: "hggjhghk",
-      bestseller: false
-    },
-    {
-      img: pic4WebP,
-      ul: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      title: "Healthy Snack",
-      category: "Healthy Snack",
-      description: "hggjhghk",
-      bestseller: true
-    },
-    {
-      img: pic5WebP,
-      ul: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      title: "Choco Chips",
-      category: "Choco Chips",
-      description: "hggjhghk",
-      bestseller: false
-    },
-    {
-      img: pic6WebP,
-      ul: {
-        img1: "",
-        img2: "",
-        img3: "",
-      },
-      title: "Choco Chips",
-      category: "Choco Chips",
-      description: "hggjhghk",
-      bestseller: true
-    },
-  ];
 
+  const cakesFromStore = useSelector((state:RootState) => state.cakes.cakes);
+  const cakes = cakesFromStore.filter((cake) => cake.BestSeller === true);
+
+  //console.log('cakes', cakes)
   const openModal = (product:any) => {
     setShowModal(true);
     setSelectedProduct(product)
@@ -142,7 +55,7 @@ const Products = () => {
     setSelectedProduct(null);
   }
 
-  const categories = ["All", "Cup Cake", "Energy Bar",  "Birthday Cake", "Healthy Snack", "Choco Chips"];
+  const categories = ["All", "Cup cake", "Energy bar",  "Birthday cake", "Healthy snacks", "Choco chips"];
 
   //const categoryButtonsRef = useRef<HTMLDivElement>(null);
 
@@ -158,12 +71,18 @@ const Products = () => {
     // }
   }
 
-  const filteredProducts = selectedCategory === "All"? productTiles : productTiles.filter((item) => item.category === selectedCategory) 
+  
+
+  const filteredProducts = selectedCategory === "All"? cakes : cakes.filter((item) => item.Category === selectedCategory) 
+
+  // const fixedImagePath = (item: string) => {
+  //   return item.replace(/\\/g, "/");
+  // };
 
   return (
     <div className="section">
       <div className="contents">
-        <h1>Our Products</h1>
+        <h1>Our best sellers!</h1>
         <div className="categoryButtons" 
         // ref={categoryButtonsRef}
         >
@@ -185,15 +104,17 @@ const Products = () => {
               
               <div className="productTiles">
               {/* <div className={item.bestseller? 'bestseller':'productTiles'}> */}
-              {item.bestseller && <div className="bestseller-badge">Bestseller</div>}
+              {item.BestSeller && <div className="bestseller-badge">Bestseller</div>}
                 <div className="productTilesImage">
                   <LazyLoadImage
-                    src={item.img}
+                    src={item.ImagePath}
                     alt=""
                     effect="blur"
                     width="100%"
                     height="100%"
-                    srcSet={`${item.img} 300w, ${item.img} 600w, ${item.img} 1200w`}
+                    // srcSet={`${fixedImagePath(item.ImagePath)} 300w, ${fixedImagePath(item.ImagePath)} 600w, ${fixedImagePath(item.ImagePath)} 1200w`}
+                    srcSet={`http://localhost:8080/${item.ImagePath} 300w, http://localhost:8080/${item.ImagePath} 600w, http://localhost:8080/${item.ImagePath} 1200w`}
+
                     sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
                   />
                 </div>
@@ -203,7 +124,7 @@ const Products = () => {
                   whileHover="visible"
                   variants={ulVariants}
                 >
-                 <motion.li variants={liVariants} onClick={() => openModal(item)}><img src={item.ul.img1} alt=""></img></motion.li>
+                 <motion.li variants={liVariants} onClick={() => openModal(item)}><img src='' alt=""></img></motion.li>
                  <AnimatePresence>
                  {showModal && selectedProduct && (
                   
@@ -211,10 +132,10 @@ const Products = () => {
                   
                  )}
                  </AnimatePresence>
-                 <motion.li variants={liVariants}><img src={item.ul.img2} alt=""></img></motion.li>
-                 <motion.li variants={liVariants}><img src={item.ul.img3} alt=""></img></motion.li>
+                 <motion.li variants={liVariants}><img src='' alt=""></img></motion.li>
+                 <motion.li variants={liVariants}><img src='' alt=""></img></motion.li>
                 </motion.ul>
-                <div className="productTilesDescription">{item.title}</div>
+                <div className="productTilesDescription">{item.Name}</div>
               </div>
             </div>
           ))}
@@ -225,8 +146,3 @@ const Products = () => {
 };
 
 export default Products;
-
-
-
-
-

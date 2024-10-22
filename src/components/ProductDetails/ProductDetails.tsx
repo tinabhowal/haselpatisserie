@@ -4,14 +4,14 @@ import {motion} from 'framer-motion'
 
 interface props {
     product: {
-        img: string;
+        ImagePath: string;
         ul: {
             img1: string;
             img2: string;
             img3: string;
         };
-        title: string;
-        description: string;
+        Name: string;
+        Description: string;
     };
     onClose: () => void
 }
@@ -31,11 +31,15 @@ const ProductDetails = (props:props) => {
     onClick={handleBackgroundClick}>
         <div className="modal-content">
         <div>
-        <img src={props.product.img} alt={props.product.title}></img>
+        <img src={`http://localhost:8080/${props.product.ImagePath}`}
+        // {props.product.ImagePath} 
+        alt={props.product.Name}>
+
+        </img>
         </div>
         <div>
-            <h2>{props.product.title}</h2>
-            <p>{props.product.description}</p>
+            <h2>{props.product.Name}</h2>
+            <p>{props.product.Description}</p>
             <button onClick={props.onClose}>Close</button>
         </div>
         
@@ -44,4 +48,4 @@ const ProductDetails = (props:props) => {
   )
 }
 
-export default ProductDetails
+export default ProductDetails;

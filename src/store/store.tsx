@@ -54,16 +54,19 @@ const tokenSlice = createSlice({
     cakes: Cake[] 
   }
 
+  const cakesFromLocalStorage = localStorage.getItem('cakes');
+
   const initialCakeState : CakeState = {
-    cakes: []
-  }
+    cakes: cakesFromLocalStorage? JSON.parse(cakesFromLocalStorage) : []
+  };
 
   const cakesSlice = createSlice({
     name: 'cakes',
     initialState: initialCakeState,
     reducers: {
         setCakes: (state, action:PayloadAction<Cake[]>) => {
-            state.cakes = action.payload
+            state.cakes = action.payload;
+            localStorage.setItem('cakes', JSON.stringify(action.payload))
         }
     }
   })

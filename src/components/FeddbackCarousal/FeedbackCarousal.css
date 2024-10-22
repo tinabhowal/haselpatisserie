@@ -1,0 +1,27 @@
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+  }
+  
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    will-change: transform;
+  }
+  
+  .carousel-image {
+    flex: 0 0 33.33%; /* 3 images fit in the viewport */
+    transition: transform 0.6s ease;
+    padding: 10px;
+  }
+  
+  .carousel-image.active {
+    transform: scale(1.2); /* Zoom the active (middle) image */
+  }
+  
+  .carousel-image {
+    transform: scale(1); /* Default state */
+  }
+  

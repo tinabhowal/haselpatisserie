@@ -38,9 +38,8 @@
     font-family:'Montaga, serif'
 }
 
-body {
-    margin: 0;
-    
+.navbar-menu li:last-child a {
+    margin-right: 1rem;
 }
 
 section {
@@ -49,4 +48,14 @@ section {
 }
 
 
+/* .navbar-menu li.active {
+    background-color: #fff; 
+} */
 
+.navbar-menu li.active a {
+    font-weight: bolder;
+}
+
+.navbar-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
