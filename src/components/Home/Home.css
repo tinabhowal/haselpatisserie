@@ -10,7 +10,7 @@
   width: 100vw;
 }
 
-.background {
+/* .background {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -21,8 +21,7 @@
   align-items: center;
   position: relative;
   background-color: #7e3911; 
- 
-}
+} */
 
 .headerText {
   position: absolute;

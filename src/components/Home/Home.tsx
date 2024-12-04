@@ -7,36 +7,37 @@ import './Home.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import img1 from "../../images/homeBG.JPG";
-import img2 from '../../images/donuts.jpg';
+// import img1 from "../../images/Group 45.png";
+// import img2 from '../../images/donuts.jpg';
 import { motion, useInView} from 'framer-motion';
+import ParallaxFloat from '../ParallaxFloat/ParallaxFloat';
 
 
 const Home = () => {
   
-  var settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    fade: true,
-    speed: 2000,
-    waitForAnimate: false,
-    arrows: false
-  };
+  // var settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 3000,
+  //   fade: true,
+  //   speed: 2000,
+  //   waitForAnimate: false,
+  //   arrows: false
+  // };
 
-  const slides = [
-    {
-      image: img1,
-      text: 'First paragraph text.',
-    },
-    {
-      image: img2,
-      text: 'Second paragraph text.',
-    },
-  ];
+  // const slides = [
+  //   {
+  //     image: img1,
+  //     text: 'First paragraph text.',
+  //   },
+  //   {
+  //     image: img2,
+  //     text: 'Second paragraph text.',
+  //   },
+  // ];
 
   //const ref = useRef(null);
   //const isInView = useInView(ref, { once: false, amount: 0});
@@ -63,7 +64,9 @@ const Home = () => {
             </div>
           ))}
         </Slider> */}
-        <div className='background' style={{ backgroundImage: `url(${img1})` }}>first paragh</div>
+        <div className='background'>
+        <ParallaxFloat />
+        </div>
       </section>
 
 

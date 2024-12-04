@@ -1,26 +1,100 @@
 .parallax-container {
     position: relative;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-position: center center;
+    background-size: cover;
   }
   
   .floating-text {
-    color: white;
+    color: rgb(236, 144, 5);
     text-align: center;
     font-size: 3rem;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: float 4s ease-in-out infinite;
+    top: 5%;
+    /* transform: translateY(-50%); */
+    /* animation: float 4s ease-in-out infinite; */
+  }
+
+  .rotating-cookie{
+    position: absolute;
+    top: -5%;
+    right: 60%;
+  }
+
+  .rotating-cookie2{
+    position: absolute;
+    bottom: -10%;
+    left: 15%;
+  }
+
+  .rotating-cookie img, .rotating-cookie2 img{
+    width: 250px;
+    height: auto;
+    animation: cookie 4s ease-in-out infinite;
+  }
+
+
+  .floating-bread{
+    position: absolute;
+    top: 10%;
+    left: 40%;
+  }
+
+  .floating-bread img{
+    width: 150px;
+    height: auto;
+    animation: bread 4s ease-in-out infinite;
+    transform-origin: bottom left;
   }
   
+  .floating-croissant1{
+    position: absolute;
+    bottom: -10%;
+    right: 15%;
+  }
+
+
+  .floating-croissant1 img{
+    width: 250px;
+    height: auto;
+    animation: bread 4s ease-in-out infinite;
+    transform-origin: bottom left;
+    
+  }
+
   @keyframes float {
     0% {
       transform: translateY(-50%) translateX(0);
     }
     50% {
-      transform: translateY(-45%) translateX(5px); /* Slight movement on the X-axis */
+      transform: translateY(-25%) translateX(10px); 
     }
     100% {
       transform: translateY(-50%) translateX(0);
     }
   }
   
+  @keyframes bread {
+    0% {
+      transform:  rotate(0deg);
+    }
+    50% {
+      transform:  rotate(2deg);
+    }
+    100% {
+      transform:  rotate(0deg);
+    }
+  }
+
+  @keyframes cookie {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(6deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }

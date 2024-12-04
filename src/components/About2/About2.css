@@ -1,10 +1,11 @@
 
 .about2Page{
     overflow-x: hidden;
-    background-image: url('../../images/freepik__retouch__84134.png');
+    /* background-image: url('../../images/freepik__retouch__84134.png'); */
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #FFF0E5;
+    /* background-color: #FFF0E5; */
+    background-color: #FFE7DA;
 }
 
   .aboutTop{
@@ -13,10 +14,11 @@
     /* background-color:#C1E1EC; */
     /* background: linear-gradient(180deg, #FADADD, #FFFFFF); */
     padding: 150px 0 0 0;
-    background-image: url('../../images/freepik__retouch__84134.png');
+    background-image: url('../../images/aboutbg.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #FFF0E5;
+    /* background-color: #FFF0E5; */
+    background-color: #FFE7DA;
     margin-bottom: 20px;
     background-position: center;
     object-fit: cover;
@@ -45,7 +47,8 @@
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
-    background-color: #FFF0E5;
+    /* background-color: #FFF0E5; */
+    background-color: #FFE7DA;
     padding: 0;
     /* background: linear-gradient(360deg, #FADADD, #FFFFFF); */
 }
@@ -73,7 +76,7 @@
 
 .about2FeedbackSection{
   /* background: linear-gradient(360deg, #cee5ed, #FFFFFF); */
-  background: linear-gradient(180deg, #FFF0E5, #FFFFFF);
+  background: linear-gradient(180deg, #FFE7DA, #FFFFFF);
   
 }
 
