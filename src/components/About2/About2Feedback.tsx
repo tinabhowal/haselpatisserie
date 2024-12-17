@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import './About2Feedback.css';
 
-
 const About2Feedback = () => {
     const [selectedId, setSelectedId] = useState<number | null>(null);
 
@@ -33,20 +32,15 @@ const About2Feedback = () => {
                     onClick={() => handleSelection(item.id)}
                     layoutId={item.id.toString()} 
                     style={{
-                        cursor: 'pointer',
-                        margin: '10px',
-                        padding: '10px',
-                        borderRadius: '20PX',
-                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-                        // width: randomWidth,
-                        minWidth: '150px',
                         zIndex: selectedId ? 1 : 0,
                     }}
                     whileHover={{ scale: 1.05 }} 
                     // whileTap={{ scale: 0.95 }} 
                 >
-                    <h2>{item.title}</h2>
-                    <p style={{ fontStyle: 'italic', color: '#434242' }}>
+                    <p className='title'>{item.title}</p>
+                    <p className='feedback'
+                    // style={{ fontStyle: 'italic', color: '#434242' }}
+                    >
                       <ImQuotesLeft 
                         style={{
                             color: 'grey', 
@@ -74,7 +68,10 @@ const About2Feedback = () => {
                             onMouseLeave={(e) => e.currentTarget.style.opacity = '0.3'}
                             />
                             </p>
-                            <p style={{ fontStyle: 'italic', color: '#c2bebe' }}>
+                            <p 
+                            className='name'
+                            // style={{ fontStyle: 'italic', color: '#c2bebe' }}
+                            >
                             {item.name}
                          </p>
                 </motion.div>
@@ -108,11 +105,14 @@ const About2Feedback = () => {
                                 minWidth: '200px'
                             }}
                         >
-                                <h2>
+                                <p className='title'>
                                 {items.find(item => item.id === selectedId)?.title}
-                                </h2>
+                                </p>
                             
-                            <p style={{ fontStyle: 'italic', color: '#434242' }}>
+                            <p 
+                            className='feedback'
+                            // style={{ fontStyle: 'italic', color: '#434242' }}
+                            >
                             <ImQuotesLeft 
                                 style={{
                                     color: 'grey', 
@@ -126,7 +126,10 @@ const About2Feedback = () => {
                                 onMouseLeave={(e) => e.currentTarget.style.opacity = '0.3'}  
                                 />
                                 {items.find(item => item.id === selectedId)?.subtitle}
-                                <motion.button style={{position: 'absolute', top: 0, right: 0, margin: '10px'}}onClick={() => setSelectedId(null)}>Close</motion.button>
+                                <motion.button 
+                                className='closeButton'
+                                // style={{position: 'absolute', top: 0, right: 0, margin: '10px'}}
+                                onClick={() => setSelectedId(null)}>Close</motion.button>
                             <ImQuotesRight 
                         style={{
                             color: 'grey', 
@@ -140,7 +143,10 @@ const About2Feedback = () => {
                             onMouseLeave={(e) => e.currentTarget.style.opacity = '0.3'}
                         />
                        </p>         
-                       <p style={{ fontStyle: 'italic', color: '#c2bebe' }}>
+                       <p 
+                       className='name'
+                       style={{ fontStyle: 'italic', color: '#c2bebe' }}
+                       >
                             {items.find((item) => item.id === selectedId)?.name }
                          </p>
                         </motion.div>
