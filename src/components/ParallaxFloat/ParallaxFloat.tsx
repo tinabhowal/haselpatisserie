@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Parallax } from 'react-parallax';
 import './ParallaxFloat.css';
 import img from "../../images/bakedwithlove.png";
@@ -6,26 +6,70 @@ import bun2 from "../../images/orange gingerbread cookie.png";
 import pretzel from "../../images/leaf2.png";
 import leafy from "../../images/leaf.png";
 
-
 const ParallaxFloat = () => {
-    return (
-        <Parallax
-          bgImage= {img}
-          strength={200} // Controls the parallax effect strength
-          bgImageAlt="background"
-          className="parallax-container"
-        >
-          <div style={{ height: '500px' }}>
-            {/* <h1 className="floating-text">Hazel Patisserie</h1> */}
-            {/* <div className='floating-bread'><img src={breadCutout} alt='bread' /></div>
-            <div className='rotating-cookie'><img src={cookieCutout} alt='cookie' /></div> */}
-            <div className='floating-croissant1'><img src={bun2} alt='croissant' /></div>
-            {/* <div className='rotating-cookie'><img src={bread} alt='cookie' /></div> */}
-            <div className='rotating-cookie'><img src={leafy} alt='cookie' /></div>
-            <div className='rotating-cookie2'><img src={pretzel} alt='cookie' /></div>
-          </div>
-        </Parallax>
-      );
-}
+  const [bgImageStyle, setBgImageStyle] = useState({
+    objectFit: 'cover',
+    width: '100vw',
+    height: '100vh',
+    backgroundPosition: 'top',
+  });
 
-export default ParallaxFloat
+  const [parallaxStrength, setParallaxStrength] = useState(200); 
+
+  useEffect(() => {
+    // Function to update bgImageStyle based on screen width
+    const handleResize = () => {
+      if (window.innerWidth <= 768 || window.innerWidth <= 500) {
+        setBgImageStyle({
+          objectFit: 'contain',
+          width: '100vw',
+          height: 'auto',
+          backgroundPosition: 'top',
+        });
+        setParallaxStrength(600)
+      } else if(window.innerWidth <=1024){
+        setBgImageStyle({
+          objectFit: 'cover',
+          width: '100vw',
+          height: 'auto',
+          backgroundPosition: 'top',
+        });
+        setParallaxStrength(200)
+      }else{
+        setBgImageStyle({
+          objectFit: 'cover',
+          width: '100vw',
+          height: '100vh',
+          backgroundPosition: 'top',
+        });
+      }
+    };
+
+    // Call once on load and add a resize listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the listener on unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <Parallax
+      bgImage={img}
+      strength={parallaxStrength} // Controls the parallax effect strength
+      bgImageAlt="background"
+      bgImageStyle={bgImageStyle}
+      className="parallax-container"
+    >
+      <div 
+      style={{ height: '100px' }}
+      >
+        <div className='floating-croissant1'><img src={bun2} alt='croissant' /></div>
+        <div className='rotating-cookie'><img src={leafy} alt='cookie' /></div>
+        <div className='rotating-cookie2'><img src={pretzel} alt='cookie' /></div>
+      </div>
+    </Parallax>
+  );
+};
+
+export default ParallaxFloat;

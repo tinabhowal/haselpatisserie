@@ -2,6 +2,16 @@
 
 .homeDiv{
   scroll-behavior: smooth;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
 }
 
 
@@ -39,4 +49,10 @@
 
 .products{
   height: 100%;
+}
+
+@media screen and (max-width: 480px){
+  .header{
+    height: 200px;
+  }
 }

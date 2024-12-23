@@ -1,10 +1,10 @@
 .parallax-container {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-size:contain;
-  }
+  height: 100%;
+  width: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
   
   .floating-text {
     color: rgb(236, 144, 5);
@@ -12,19 +12,17 @@
     font-size: 3rem;
     position: relative;
     top: 5%;
-    /* transform: translateY(-50%); */
-    /* animation: float 4s ease-in-out infinite; */
   }
 
   .rotating-cookie{
     position: absolute;
-    top: -10%;
+    top: -50%;
     left: 0;
   }
 
   .rotating-cookie2{
     position: absolute;
-    bottom: -10%;
+    bottom: -400%;
     left: -5%;
   }
 
@@ -37,7 +35,7 @@
 
   .floating-bread{
     position: absolute;
-    top: 10%;
+    bottom: 10%;
     left: 40%;
   }
 
@@ -50,7 +48,7 @@
   
   .floating-croissant1{
     position: absolute;
-    bottom: -10%;
+    top: 300%;
     right: 50%;
   }
 
@@ -98,3 +96,96 @@
       transform: rotate(0deg);
     }
   }
+
+
+
+
+@media (max-width: 1024px) {
+  .rotating-cookie{
+    top: -30%;
+    left: 0;
+  }
+
+  .rotating-cookie2{
+    position: absolute;
+    bottom: -400%;
+    left: -4%;
+  }
+  
+    .rotating-cookie img, .rotating-cookie2 img{
+      width: 150px;
+    }
+  
+
+    .floating-croissant1{
+      bottom: -380%;
+    }
+  
+  
+    .floating-croissant1 img{
+      width: 150px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+   .rotating-cookie{
+    position: absolute;
+    top: -30%;
+    left: 0;
+  }
+
+  .rotating-cookie2{
+    position: absolute;
+    top: 280%;
+    left: -4%;
+  }
+  
+    .rotating-cookie img, .rotating-cookie2 img{
+      width: 150px;
+    }
+  
+
+    .floating-croissant1{
+      bottom: -280%;
+    }
+  
+  
+    .floating-croissant1 img{
+      width: 150px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+
+  .rotating-cookie{
+    position: absolute;
+    top: -10%;
+    left: 0;
+  }
+
+  .rotating-cookie2{
+    position: absolute;
+    top: 130%;
+    left: -4%;
+  }
+  
+    .rotating-cookie img, .rotating-cookie2 img{
+      width: 75px;
+      height: auto;
+      animation: cookie 2s ease-in-out infinite;
+    }
+  
+
+    .floating-croissant1{
+      top: 130%;
+    }
+  
+  
+    .floating-croissant1 img{
+      width: 75px;
+      animation: bread 2s ease-in-out infinite;
+    }
+}

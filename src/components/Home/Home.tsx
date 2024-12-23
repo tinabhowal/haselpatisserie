@@ -50,8 +50,8 @@ const Home = () => {
 
   return (
     <div className='homeDiv'>
-      <section className="header" style={{padding:0}}>
-        <Navigation />
+      {/* <Navigation /> */}
+      <section className="header">
         {/* <Slider {...settings}>
           {slides.map((slide, index) => (
             <div key={index} className="slide">
@@ -59,14 +59,14 @@ const Home = () => {
                 className="background"
                 style={{ backgroundImage: `url(${slide.image})` }}
               >
-                <div className="headerText">{slide.text}</div>
+                <div className="headerText">{slide.text}</div> 
               </div>
             </div>
           ))}
         </Slider> */}
-        <div className='background'>
+        {/* <div className='background'> */}
         <ParallaxFloat />
-        </div>
+        {/* </div> */}
       </section>
 
 
@@ -99,9 +99,6 @@ const Home = () => {
             whileInView={{opacity: 1, y:0, }}
             viewport={{ once: false, amount: 0.1 }}
             transition={{duration:0.9, ease: 'easeInOut'}}
-
-            
-            
         >
       {/* <section className="productsDetails"> */}
       <Products />

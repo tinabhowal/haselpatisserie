@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import './About2.css';
 import Navigation from "../Navigation/Navigation";
-import img from "../../images/quin-engle-QRpNjzEX1eU-unsplash.webp";
+// import img from "../../images/quin-engle-QRpNjzEX1eU-unsplash.webp";
 import About2Feedback from "./About2Feedback";
 import { FaWhatsapp } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";

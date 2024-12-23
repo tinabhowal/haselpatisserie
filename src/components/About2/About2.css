@@ -338,18 +338,18 @@ svg {
   }
 
   .aboutTop-heading{
-    padding: 20px 0px 0px 10px;
+    padding: 40px 0px 0px 10px;
   }
   
   .first-text {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 400;
     color: var(--main-color);
     line-height: 1; 
   }
   
   .second-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--secondary-color);
     will-change: transform;
     line-height: 1;
@@ -397,7 +397,16 @@ svg {
 
 }
 
-@media (max-width: 480px) {
+@media screen and (min-width: 500px) and (max-width: 568px)  {
+
+  .aboutTop {
+    background-position:top;
+    background-size: contain; 
+    background-attachment: fixed; 
+    height: auto;
+    padding: 100px 0 100px 0;
+}
+
   .first-text {
     font-size: 1rem;
   }
@@ -467,4 +476,114 @@ svg {
     /* overflow-y: scroll; */
   }
 
+}
+
+
+@media screen and (max-width: 500px)  {
+
+  .aboutTop {
+    background-position:top;
+    background-size: contain; 
+    background-attachment: fixed; 
+    height: auto;
+    padding: 100px 0 80px 0;
+}
+
+  .first-text {
+    font-size: 1rem;
+  }
+
+  .second-text {
+    font-size: 0.6rem;
+  }
+
+
+  .middleText-heading, .scrollComponent-heading, .feedbacksectionHeading {
+    font-size: 1.8rem;
+    white-space: wrap;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .middleText-content-subHeading{
+    white-space: wrap;
+    text-align: center;
+    margin-bottom: 0px;
+    line-height: 1.2;
+  }
+
+  
+
+  .middleText-content-subHeading p{
+    margin: 0;
+    text-align: center;
+  }
+
+  .middleText-subHeading {
+    font-size: 0.6rem;
+    white-space: wrap;
+    text-align: center;
+  }
+
+
+  .middleText{
+   align-items: flex-start;
+  }
+
+  .middleText, .middleForm {
+    padding: 10px;
+  }
+
+  .middleText2 p, .middleText2 p a {
+    white-space: nowrap;
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+
+  .scrollComponent{
+    max-height:fit-content;
+  }
+  .scrollComponent img {
+    width: 100px;
+    height: 100px;
+    margin: 5px 5px 0px 0px;
+    border-radius: 5px;
+  }
+  
+  .about2FeedbackSection {
+    height: auto;
+    padding: 10px 5px;
+    /* overflow-y: scroll; */
+  }
+
+}
+
+
+@media screen and (max-width: 470px) and (min-width: 300px)  {
+
+  .aboutTop {
+    background-position:top;
+    background-size: contain; 
+    background-attachment: fixed; 
+    height: auto;
+    padding: 80px 0 60px 0;
+}
+
+.aboutTop-heading{
+  padding: 0px 0px 10px 10px;
+}
+
+  .first-text {
+    font-size: 1rem;
+  }
+
+  .second-text {
+    font-size: 0.6rem;
+  }
 }
