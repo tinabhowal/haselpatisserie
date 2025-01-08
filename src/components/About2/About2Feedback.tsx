@@ -88,6 +88,7 @@ const About2Feedback = () => {
                             animate={{ opacity: 0.5 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.3 }}
+                            onClick={() => setSelectedId(null)}
                         />
                         <motion.div
                             className="focused-item"
@@ -104,6 +105,7 @@ const About2Feedback = () => {
                                 boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
                                 minWidth: '200px'
                             }}
+                            onClick={(e) => e.stopPropagation()}
                         >
                                 <p className='title'>
                                 {items.find(item => item.id === selectedId)?.title}

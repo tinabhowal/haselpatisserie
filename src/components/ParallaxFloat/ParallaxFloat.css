@@ -157,6 +157,34 @@
 }
 
 
+
+@media screen and (min-width: 480px) and (max-width: 800px) {
+ 
+ .rotating-cookie2{
+   position: absolute;
+   top: 180%;
+   left: -4%;
+ }
+ 
+   .rotating-cookie img, .rotating-cookie2 img{
+     width: 120px;
+   }
+ 
+
+   .floating-croissant1{
+     top: 180%;
+   }
+ 
+ 
+   .floating-croissant1 img{
+     width: 100px;
+   }
+}
+
+
+
+
+
 @media (max-width: 480px) {
 
 
@@ -189,3 +217,9 @@
       animation: bread 2s ease-in-out infinite;
     }
 }
+
+
+
+
+
+

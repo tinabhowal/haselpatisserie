@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './ProductValuesTwo.css';
 // import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
+ 
 const ProductValuesTwo = () => {
   const [nav1, setNav1] = useState<Slider | null>(null);
   const [nav2, setNav2] = useState<Slider | null>(null);
@@ -31,7 +31,7 @@ const ProductValuesTwo = () => {
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false, // Hides the arrows for the text slider
+    arrows: false, 
   };
 
   const slides = [

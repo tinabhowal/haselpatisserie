@@ -10,7 +10,7 @@ const ParallaxFloat = () => {
   const [bgImageStyle, setBgImageStyle] = useState({
     objectFit: 'cover',
     width: '100vw',
-    height: '100vh',
+    height: '100vh', 
     backgroundPosition: 'top',
   });
 
@@ -21,21 +21,28 @@ const ParallaxFloat = () => {
     const handleResize = () => {
       if (window.innerWidth <= 768 || window.innerWidth <= 500) {
         setBgImageStyle({
-          objectFit: 'contain',
-          width: '100vw',
-          height: 'auto',
-          backgroundPosition: 'top',
-        });
-        setParallaxStrength(600)
-      } else if(window.innerWidth <=1024){
-        setBgImageStyle({
           objectFit: 'cover',
           width: '100vw',
-          height: 'auto',
+          height: '100%',
           backgroundPosition: 'top',
         });
         setParallaxStrength(200)
-      }else{
+      } else if(window.innerWidth < 1024){
+        setBgImageStyle({
+          objectFit: 'cover',
+          width: '100vw',
+          height: '100%',
+          backgroundPosition: 'top',
+        });
+        setParallaxStrength(200)
+      }else if (window.innerWidth === 1024 || window.innerWidth > 1024 || window.innerWidth < 1100) {
+        setBgImageStyle({
+          objectFit: 'contain',
+          width: '100vw',
+          height: 'auto',
+          backgroundPosition: 'top center',
+        });
+      } else {
         setBgImageStyle({
           objectFit: 'cover',
           width: '100vw',
@@ -61,9 +68,7 @@ const ParallaxFloat = () => {
       bgImageStyle={bgImageStyle}
       className="parallax-container"
     >
-      <div 
-      style={{ height: '100px' }}
-      >
+      <div style={{ height: ' 100px' }}>
         <div className='floating-croissant1'><img src={bun2} alt='croissant' /></div>
         <div className='rotating-cookie'><img src={leafy} alt='cookie' /></div>
         <div className='rotating-cookie2'><img src={pretzel} alt='cookie' /></div>

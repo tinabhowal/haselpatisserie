@@ -13,25 +13,47 @@ interface props {
         Name: string;
         Description: string;
     };
-    onClose: () => void
+    onClose: () => void;
+    
 }
 const ProductDetails = (props:props) => {
     const handleBackgroundClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         if(e.target === e.currentTarget){
             props.onClose()
         }
-    }
+    } 
+
   return (
-    <motion.div
-    className='modal'
-    initial={{opacity: 0, y: 20}}
-    animate={{opacity: 1, y:0}}
-    exit={{opacity: 0, y: 20}}
-    transition={{duration: 0.3}}
-    onClick={handleBackgroundClick}>
-        <div className="modal-content">
-        <div>
-        <img src={`http://localhost:8080/${props.product.ImagePath}`}
+  
+    <div style={{position:'relative'}}>
+                             {/* <motion.div
+                                className="overlayy" 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 0.5 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.1 }}
+                                // transition={{
+                                //     duration: 0.2,
+                                //     ease: [0.4, 0, 0.2, 1]
+                                // }}
+                                onClick={handleBackgroundClick}
+                            /> */}
+                            <motion.div
+                                className="focused-itemm"
+                                initial={{ scale: 0, opacity: 0 }} 
+                                animate={{ scale: 1, opacity: 1 }} 
+                                exit={{ scale: 0.5, opacity: 0 }} 
+                                // transition={{
+                                //     duration: 0.2,
+                                //     ease: [0.4, 0, 0.2, 1]
+                                // }}
+                                transition={{ duration: 0.1, ease: [0.4, 0, 0.2, 1]}}
+    
+                            >
+                                <>
+
+                                <div>
+    <img className='modal-content-img' src={`http://localhost:8080/${props.product.ImagePath}`}
         // {props.product.ImagePath} 
         alt={props.product.Name}>
 
@@ -42,10 +64,16 @@ const ProductDetails = (props:props) => {
             <p>{props.product.Description}</p>
             <button onClick={props.onClose}>Close</button>
         </div>
-        
-        </div>
-    </motion.div>
+                                </>
+                            </motion.div>
+
+</div>
   )
 }
 
 export default ProductDetails;
+
+
+
+
+

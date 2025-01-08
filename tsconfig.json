@@ -21,6 +21,5 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-, "src/components/Navigation", "src/components/Home/Home.tsx"  ]
+    "src", "src/components/Navigation", "src/components/Home/Home.tsx"  ]
 }

@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 // import { RootState } from './store/store';
 import { cakesActions } from './store/store';
 import { useDispatch } from 'react-redux';
-import About from './components/About/About';
+// import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import About2 from './components/About2/About2';
 
