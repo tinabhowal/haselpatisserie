@@ -5,6 +5,7 @@ import img from "../../images/bakedwithlove.png";
 import bun2 from "../../images/orange gingerbread cookie.png";
 import pretzel from "../../images/leaf2.png";
 import leafy from "../../images/leaf.png";
+import bgImgForSmallScreen from "../../images/brent-ninaber-r98McHBXGN8-unsplash (1).webp";
 
 const ParallaxFloat = () => {
   const [bgImageStyle, setBgImageStyle] = useState({
@@ -14,6 +15,7 @@ const ParallaxFloat = () => {
     backgroundPosition: 'top',
   });
 
+  const [backgroundImg, setBackgroundImg] = useState<string>('');
   const [parallaxStrength, setParallaxStrength] = useState(200); 
 
   useEffect(() => {
@@ -25,7 +27,8 @@ const ParallaxFloat = () => {
           width: '100vw',
           height: '100%',
           backgroundPosition: 'top',
-        });
+        }); 
+        setBackgroundImg(bgImgForSmallScreen);
         setParallaxStrength(200)
       } else if(window.innerWidth < 1024){
         setBgImageStyle({
@@ -34,6 +37,7 @@ const ParallaxFloat = () => {
           height: '100%',
           backgroundPosition: 'top',
         });
+        setBackgroundImg(bgImgForSmallScreen);
         setParallaxStrength(200)
       }else if (window.innerWidth === 1024 || window.innerWidth > 1024 || window.innerWidth < 1100) {
         setBgImageStyle({
@@ -42,13 +46,15 @@ const ParallaxFloat = () => {
           height: 'auto',
           backgroundPosition: 'top center',
         });
+        setBackgroundImg(img);
       } else {
         setBgImageStyle({
           objectFit: 'cover',
           width: '100vw',
           height: '100vh',
-          backgroundPosition: 'top',
+          backgroundPosition: 'top center'
         });
+        setBackgroundImg(img);
       }
     };
 
@@ -62,7 +68,7 @@ const ParallaxFloat = () => {
 
   return (
     <Parallax
-      bgImage={img}
+      bgImage={backgroundImg}
       strength={parallaxStrength} // Controls the parallax effect strength
       bgImageAlt="background"
       bgImageStyle={bgImageStyle}

@@ -6,12 +6,12 @@
   --gray-color: #9d9999;
   font-size: 16px;
 }
-
+ 
 .about2Page{
     overflow-x: hidden;
     /* background-image: url('../../images/freepik__retouch__84134.png'); */
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     /* background-color: #FFF0E5; */
     /* background-color: #FFE7DA; */
     
@@ -92,7 +92,8 @@
   }
   
 .middle{
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: auto;
   width: 100vw;
   overflow-y: hidden;
   margin-bottom: 50px;
@@ -329,13 +330,22 @@ svg {
       font-size: 14px;
   }
 
-  .aboutTop {
+  /* .aboutTop {
       background-position:top;
       background-size: contain; 
       background-attachment: fixed; 
       height: auto;
       padding: 100px 0 100px 0;
-  }
+  } */
+
+  /* .aboutTop {
+    background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.jpg');
+    background-position: center center;
+    background-size: cover; 
+    background-attachment: fixed; 
+    height: 1oovh;
+    padding: 0px 0 6px 0;
+} */
 
   .aboutTop-heading{
     padding: 40px 0px 0px 10px;
@@ -399,13 +409,14 @@ svg {
 
 @media screen and (min-width: 500px) and (max-width: 568px)  {
 
-  .aboutTop {
-    background-position:top;
-    background-size: contain; 
-    background-attachment: fixed; 
-    height: auto;
-    padding: 100px 0 100px 0;
-}
+
+/* .aboutTop {
+  background-position: center center;
+  background-size: cover; 
+  background-attachment: fixed; 
+  height: 1oovh;
+  padding: 0px 0 6px 0;
+} */
 
   .first-text {
     font-size: 1rem;
@@ -481,13 +492,15 @@ svg {
 
 @media screen and (max-width: 500px)  {
 
-  .aboutTop {
-    background-position:top;
-    background-size: contain; 
-    background-attachment: fixed; 
-    height: auto;
-    padding: 100px 0 80px 0;
-}
+
+
+/* .aboutTop {
+  background-position: center center;
+  background-size: cover; 
+  background-attachment: fixed; 
+  height: 100vh;
+  padding: 0px 0 6px 0;
+} */
 
   .first-text {
     font-size: 1rem;
@@ -568,11 +581,11 @@ svg {
 @media screen and (max-width: 470px) and (min-width: 300px)  {
 
   .aboutTop {
-    background-position:top;
-    background-size: contain; 
+    background-position: center center;
+    background-size: cover; 
     background-attachment: fixed; 
-    height: auto;
-    padding: 80px 0 60px 0;
+    height: 1oovh;
+    padding: 0px 0 6px 0;
 }
 
 .aboutTop-heading{
@@ -586,4 +599,27 @@ svg {
   .second-text {
     font-size: 0.6rem;
   }
+}
+
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+  .aboutTop {
+    background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.jpg');
+    background-position: center center;
+    background-size: cover; 
+    background-attachment: fixed; 
+    height: 400px;
+    padding: 0px 0 6px 0;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .aboutTop {
+    background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.webp');
+    background-position: center center;
+    background-size: cover; 
+    background-attachment: fixed; 
+    height: 80vh;
+    padding: 0px 0 6px 0;
+}
 }

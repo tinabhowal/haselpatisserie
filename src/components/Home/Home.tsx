@@ -34,23 +34,26 @@ const Home = () => {
       window.removeEventListener('resize', handleResize);
     })
   },[])
-
+ 
   return (
     <div className='homeDiv'> 
       <Navigation /> 
       <section className="header" 
       > 
         <ParallaxFloat />
+
       </section>
 
 
       <motion.section
+            className='productValuess'
             initial={{opacity:0, y: y}}
             whileInView={{opacity: 1, y:0, }}
             transition={{duration:0.9, ease: 'easeInOut'}}    
             viewport={{ once: false, amount: 0.1 }}        
         >
           <ProductValuesTwo />     
+         
       </motion.section>
 
 <motion.section

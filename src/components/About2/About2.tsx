@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useMemo, memo } from "react";
+import React, {  useMemo,} from "react";
 import { motion } from "framer-motion";
 import './About2.css';
 import Navigation from "../Navigation/Navigation";
 // import img from "../../images/quin-engle-QRpNjzEX1eU-unsplash.webp";
 import About2Feedback from "./About2Feedback";
-import { FaWhatsapp } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { CiMail } from "react-icons/ci";
-import { CiPhone } from "react-icons/ci";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
+import { CiMail, CiPhone } from "react-icons/ci";
 import About2ScrollComponentMemoized from "./About2ScrollComponent";
 import scroll1 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
 import scroll2 from "../../images/brent-ninaber-r98McHBXGN8-unsplash (1).webp";
@@ -17,65 +15,39 @@ import scroll5 from "../../images/confectionery.webp";
 import scroll6 from "../../images/deva-williamson-S2jw81lfrG0-unsplash.webp";
 import scroll7 from "../../images/aboutBackground.webp";
 import Form from "./Form";
-import imageCompression from 'browser-image-compression';
 
 
-
-
-const About2: React.FC = () => {
-  // const [loading, setLoading] = useState(true);
-
-  // Preload images function
-  // const preloadImages = (imageArray: string[]) => {
-  //   const promises = imageArray.map((src) => {
-  //     return new Promise<void>((resolve, reject) => {
-  //       const img = new Image();
-  //       img.src = src;
-  //       img.onload = () => resolve();  // Resolve the promise when image is loaded
-  //       img.onerror = () => reject();  // Reject if there's an error
-  //     });
-  //   });
-  //   return Promise.all(promises);  // Wait until all images are loaded
-  // };
-
-
-  // Preload images in useEffect
-  // useEffect(() => {
-  //   preloadImages(memoizedImages)
-  //     .then(() => setLoading(false))  // Once images are preloaded, set loading to false
-  //     .catch((error) => {
-  //       console.error("Failed to preload images", error);
-  //       setLoading(false);  // Still render even if preloading fails
-  //     });
-  // }, [memoizedImages]);  // Preload the images only once when the component mounts
-
-  // // Render loading state while images are being preloaded
-  // if (loading) {
-  //   return <div>Loading...</div>;  // You can customize this loading screen
-  // }
-
-
+const About2: React.FC = React.memo(() => {
 
   const memoizedImages = useMemo(() => {
-    return [
-      scroll1, scroll2, scroll3, scroll4, scroll5, scroll6, scroll7, 
-      scroll1, scroll2, scroll3, scroll4, scroll5, scroll6, scroll7, 
-    ];
-  }, []); 
+    const images = [scroll1, scroll2, scroll3, scroll4, scroll5, scroll6, scroll7];
+    return [...images, ...images]; // Duplicates the array
+  }, []);
 
-  const memoizedScrollChildren = useMemo(() => 
+  const memoizedScrollChildren = useMemo(() =>
     memoizedImages.map((imgUrl, idx) => (
-      <img key={idx} src={imgUrl} alt={`${idx}`}  />
+      <img key={idx} src={imgUrl} alt={`${idx}`} 
+      // loading="eager" 
+      loading="lazy"
+      />
     )), 
     [memoizedImages]
   );
 
   
+  const scrollComponent = useMemo(() => (
+    <>
+      <About2ScrollComponentMemoized baseVelocity={-0.2}>
+        {memoizedScrollChildren}
+      </About2ScrollComponentMemoized>
+      <About2ScrollComponentMemoized baseVelocity={0.2}>
+        {memoizedScrollChildren}
+      </About2ScrollComponentMemoized>
+    </>
+  ), [memoizedScrollChildren]);
 
 
-
-
-
+  
   return (
     <div className="about2Page">
       <Navigation />
@@ -101,6 +73,14 @@ const About2: React.FC = () => {
         </motion.p>
         </div>
       </section>
+ 
+      <section className="scrollComponent">
+        <div className="scrollComponent-heading">
+          Follow our <a href="https://www.instagram.com/hazelpatisserie" target="_blank" rel="noreferrer">Instagram</a> for updates and offers
+        </div>
+        {scrollComponent}
+      </section>
+      
 
       <motion.section 
         className="aboutMiddle"
@@ -218,27 +198,11 @@ const About2: React.FC = () => {
         <About2Feedback />
       </section>
 
-
-      <section className="scrollComponent">
-        <div className="scrollComponent-heading">Follow our <a href="https://www.instagram.com/hazelpatisserie?igsh=cHVzNmI2NGJzbmUy" target="_blank" rel="noreferrer">Instagram</a> for updates and offers</div>
-        <About2ScrollComponentMemoized baseVelocity={-0.2}>
-          {/* {memoizedImages.map((imgUrl, idx) => (
-            <img key={idx} src={imgUrl} alt={` ${idx}`}  />
-          ))} */}
-          {memoizedScrollChildren}
-        </About2ScrollComponentMemoized>
-
-        <About2ScrollComponentMemoized baseVelocity={0.2}>
-          {/* {memoizedImages.map((imgUrl, idx) => (
-            <img key={idx} src={imgUrl} alt={`${idx}`} />
-          ))} */}
-          {memoizedScrollChildren}
-        </About2ScrollComponentMemoized>
-
-      </section>
+        
+      
     </div>
   );
-};
+});
 
 export default About2;
 
@@ -250,3 +214,33 @@ export default About2;
 
 
 
+
+
+// Preload images function
+  // const preloadImages = (imageArray: string[]) => {
+  //   const promises = imageArray.map((src) => {
+  //     return new Promise<void>((resolve, reject) => {
+  //       const img = new Image();
+  //       img.src = src;
+  //       img.onload = () => resolve();  // Resolve the promise when image is loaded
+  //       img.onerror = () => reject();  // Reject if there's an error
+  //     });
+  //   });
+  //   return Promise.all(promises);  // Wait until all images are loaded
+  // };
+
+
+  // Preload images in useEffect
+  // useEffect(() => {
+  //   preloadImages(memoizedImages)
+  //     .then(() => setLoading(false))  // Once images are preloaded, set loading to false
+  //     .catch((error) => {
+  //       console.error("Failed to preload images", error);
+  //       setLoading(false);  // Still render even if preloading fails
+  //     });
+  // }, [memoizedImages]);  // Preload the images only once when the component mounts
+
+  // // Render loading state while images are being preloaded
+  // if (loading) {
+  //   return <div>Loading...</div>;  // You can customize this loading screen
+  // }

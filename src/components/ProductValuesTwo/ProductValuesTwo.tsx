@@ -1,4 +1,4 @@
-import img1 from '../../images/michele-blackwell-evRB-x0TJkM-unsplash.jpg';
+import img1 from '../../images/michele-blackwell-evRB-x0TJkM-unsplash.webp';
 import img2 from '../../images/jesni-rawther-XAJRdCq7a0w-unsplash.jpg';
 import React, { useState } from 'react';
 import Slider, { Settings } from 'react-slick';

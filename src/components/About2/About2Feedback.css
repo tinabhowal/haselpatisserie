@@ -82,4 +82,13 @@
   .feedbackItem{
     width: 300px;
   }
+
+
+  .focused-item {
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    right: 5%;
+} 
+
 }
