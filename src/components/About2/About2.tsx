@@ -1,4 +1,4 @@
-import React, {  useMemo,} from "react";
+import React, {  Suspense, useMemo,} from "react";
 import { motion } from "framer-motion";
 import './About2.css';
 import Navigation from "../Navigation/Navigation";
@@ -6,22 +6,25 @@ import Navigation from "../Navigation/Navigation";
 import About2Feedback from "./About2Feedback";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { CiMail, CiPhone } from "react-icons/ci";
-import About2ScrollComponentMemoized from "./About2ScrollComponent";
+import About2ScrollComponent from "./About2ScrollComponent";
 import scroll1 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
-import scroll2 from "../../images/brent-ninaber-r98McHBXGN8-unsplash (1).webp";
-import scroll3 from "../../images/brooke-lark-pGM4sjt_BdQ-unsplash.webp";
-import scroll4 from "../../images/codioful-formerly-gradienta-7brhZmwXn08-unsplash.webp";
+import scroll2 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
+import scroll3 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
+import scroll4 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
 import scroll5 from "../../images/confectionery.webp";
-import scroll6 from "../../images/deva-williamson-S2jw81lfrG0-unsplash.webp";
-import scroll7 from "../../images/aboutBackground.webp";
-import Form from "./Form";
+import scroll6 from "../../images/confectionery.webp";
 
+
+import Form from "./Form";
+// const About2ScrollComponent = React.lazy(() => import('./About2ScrollComponent'));
 
 const About2: React.FC = React.memo(() => {
 
+  
+
   const memoizedImages = useMemo(() => {
-    const images = [scroll1, scroll2, scroll3, scroll4, scroll5, scroll6, scroll7];
-    return [...images, ...images]; // Duplicates the array
+    const images = [scroll1, scroll2, scroll3, scroll4, scroll5, scroll6];
+    return [...images]; 
   }, []);
 
   const memoizedScrollChildren = useMemo(() =>
@@ -29,6 +32,7 @@ const About2: React.FC = React.memo(() => {
       <img key={idx} src={imgUrl} alt={`${idx}`} 
       // loading="eager" 
       loading="lazy"
+      className="scrollImage" 
       />
     )), 
     [memoizedImages]
@@ -37,12 +41,12 @@ const About2: React.FC = React.memo(() => {
   
   const scrollComponent = useMemo(() => (
     <>
-      <About2ScrollComponentMemoized baseVelocity={-0.2}>
+      <About2ScrollComponent baseVelocity={-0.2}>
         {memoizedScrollChildren}
-      </About2ScrollComponentMemoized>
-      <About2ScrollComponentMemoized baseVelocity={0.2}>
+      </About2ScrollComponent>
+      <About2ScrollComponent baseVelocity={0.2}>
         {memoizedScrollChildren}
-      </About2ScrollComponentMemoized>
+      </About2ScrollComponent>
     </>
   ), [memoizedScrollChildren]);
 
@@ -53,7 +57,7 @@ const About2: React.FC = React.memo(() => {
       <Navigation />
       
       <section className="aboutTop">
-        <div className="aboutTop-heading">
+        {/* <div className="aboutTop-heading">
         <motion.div
           className="first-text"
           initial={{ opacity: 0, y: 50 }}
@@ -71,16 +75,9 @@ const About2: React.FC = React.memo(() => {
         >
           Go guilt free because now healthy is also tasty!
         </motion.p>
-        </div>
+        </div> */}
       </section>
  
-      <section className="scrollComponent">
-        <div className="scrollComponent-heading">
-          Follow our <a href="https://www.instagram.com/hazelpatisserie" target="_blank" rel="noreferrer">Instagram</a> for updates and offers
-        </div>
-        {scrollComponent}
-      </section>
-      
 
       <motion.section 
         className="aboutMiddle"
@@ -89,13 +86,6 @@ const About2: React.FC = React.memo(() => {
         transition={{ duration: 0.9, ease: 'easeInOut' }}    
         viewport={{ once: false, amount: 0.1 }}
       >
-        {/* <motion.div className="image-container">
-          <motion.img
-            src={img}
-            alt="Scaling Image"
-            className="scaling-image"
-          />
-        </motion.div> */}
 
         
 <div className="middle">
@@ -159,7 +149,7 @@ const About2: React.FC = React.memo(() => {
             <a href="mailto:rupal.sngh@gmail.com"
             target="_blank" 
             rel="noopener noreferrer"
-            // style={{display: 'inline-flex', alignItems: 'center', alignContent: 'center'}}
+            
             >
               rupal.sngh@gmail.com
             </a>
@@ -192,6 +182,12 @@ const About2: React.FC = React.memo(() => {
       </motion.section>
 
 
+<section className="scrollComponent">
+        <div className="scrollComponent-heading">
+          Follow our <a href="https://www.instagram.com/hazelpatisserie" target="_blank" rel="noreferrer">Instagram</a> for updates and offers
+        </div>
+        {scrollComponent}
+      </section>
 
       <section className="about2FeedbackSection">
         <div className="feedbacksectionHeading">We promise we didnot bribe them (much) ! 😄</div>
@@ -244,3 +240,23 @@ export default About2;
   // if (loading) {
   //   return <div>Loading...</div>;  // You can customize this loading screen
   // }
+
+
+
+
+
+// {/* <section className="scrollComponent">
+// <div className="scrollComponent-heading">
+//           Follow our <a href="https://www.instagram.com/hazelpatisserie" target="_blank" rel="noreferrer">Instagram</a> for updates and offers
+//         </div>
+// <Suspense fallback={<div>Loading...</div>}>
+//   <About2ScrollComponent baseVelocity={-0.2}>
+//     {memoizedScrollChildren}
+//   </About2ScrollComponent>
+// </Suspense>
+// <Suspense fallback={<div>Loading...</div>}>
+//   <About2ScrollComponent baseVelocity={0.2}>
+//     {memoizedScrollChildren}
+//   </About2ScrollComponent>
+// </Suspense>
+// </section>    */}

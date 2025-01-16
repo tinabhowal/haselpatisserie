@@ -265,7 +265,8 @@ svg {
   text-align: center; 
 }
 
-.scrollComponent img {
+
+.scrollImage {
   width: 200px;
   height: 200px;
   margin: 10px 10px 0px 0px;
@@ -604,7 +605,7 @@ svg {
 
 @media screen and (min-width: 480px) and (max-width: 1024px) {
   .aboutTop {
-    background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.jpg');
+    background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.webp');
     background-position: center center;
     background-size: cover; 
     background-attachment: fixed; 
@@ -619,7 +620,7 @@ svg {
     background-position: center center;
     background-size: cover; 
     background-attachment: fixed; 
-    height: 80vh;
+    height: 100vh;
     padding: 0px 0 6px 0;
 }
 }
