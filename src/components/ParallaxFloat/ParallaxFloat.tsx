@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Parallax } from 'react-parallax';
 import './ParallaxFloat.css';
-import img from "../../images/bakedwithlove.png";
+import img from "../../images/bakedwithlove2.png";
 import bun2 from "../../images/orange gingerbread cookie.png";
 import pretzel from "../../images/leaf2.png";
 import leafy from "../../images/leaf.png";
@@ -41,9 +41,9 @@ const ParallaxFloat = () => {
         setParallaxStrength(200)
       }else if (window.innerWidth === 1024 || window.innerWidth > 1024 || window.innerWidth < 1100) {
         setBgImageStyle({
-          objectFit: 'contain',
+          objectFit: 'cover',
           width: '100vw',
-          height: 'auto',
+          height: '100vh',
           backgroundPosition: 'top center',
         });
         setBackgroundImg(img);

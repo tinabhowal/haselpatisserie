@@ -3,20 +3,26 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import './Navigation.css';
 
-// interface NavigationProps {
-//     scrollPos?: number
-// }
-// const Navigation = (props:NavigationProps) => {
+
     const Navigation = () => {
+    const location = useLocation();
+
+    const isActive = (path: string) => {
+         return location.pathname === path
+    }
+
     const [style, setStyle] = useState({
         background: 'transparent',
         backdropFilter: 'none',
         paddingLeft: '1rem',
         paddingRight: '1rem',
-        fontSize: '1.4rem'
+        fontSize: '1.4rem',
+        color: 'white'
     });
-    const [navLogoFont, setNavLogoFont] = useState({fontSize: '2rem'})
+    const [navLogoFont, setNavLogoFont] = useState({fontSize: '2rem', color: 'white'});
+    const [hamburgerColor, setHamburgerColor] = useState({color: 'white'})
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const [spanBeforeColor, setSpanBeforeColor] = useState<string>('white');
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: false });
 
@@ -25,11 +31,14 @@ import './Navigation.css';
             setStyle({
                 background: 'transparent',
                 backdropFilter: 'none',
-                paddingLeft: '1rem',
-                paddingRight: '1rem',
-                fontSize: '1.4rem'
+                paddingLeft: '1.2rem',
+                paddingRight: '1.2rem',
+                fontSize: '1.4rem',
+                color: 'white'
             })
-            setNavLogoFont({fontSize: window.innerWidth <=768? '1.2rem' : '2rem'})
+            setNavLogoFont({fontSize: window.innerWidth <=768? '2rem' : '3rem',  color: 'white'})
+            setHamburgerColor({color: 'white'})
+            setSpanBeforeColor('white');
     
         } else {
             setStyle({
@@ -37,11 +46,12 @@ import './Navigation.css';
                 backdropFilter: 'blur(10px)',
                 paddingLeft: '2rem',
                 paddingRight: '2rem',
-                fontSize: '1.2rem'
+                fontSize: '1.3rem',
+                color: '#DB8063'
             })
-            setNavLogoFont({fontSize: window.innerWidth <= 768? '1.2rem' :'1.6rem'})
-           
-            
+            setNavLogoFont({fontSize: window.innerWidth <= 768? '2rem' :'2rem', color: '#DB8063'})
+            setHamburgerColor({color:'#DB8063'})
+            setSpanBeforeColor('#DB8063');
         }
     }, [isInView]);
 
@@ -60,15 +70,11 @@ import './Navigation.css';
                 transition={{ duration: 0.6 }}
             >
                 <div className="navbar-logo" style={navLogoFont}>Hazel Patisserie</div>
-                <button className='hamburger' onClick={toggleMenu} aria-label='Toggle Menu'> {menuOpen ? '✖' : '☰'} </button>
-                <ul className={`navbar-menu  ${menuOpen ? 'open' : ''}`}>
-                    {/* <li className={isActive("/") ? "active" : ''}><Link to="/">Home</Link></li>
-                    <li className={isActive("/about") ? "active" : ''}><Link to="/about">About</Link></li>
-                    <li className={isActive("/contact") ? "active" : ''}><Link to="/contact">Contact</Link></li> */}
-
-                    <li ><Link rel="preload" to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-                    <li ><Link rel="preload" to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-                    <li ><Link rel="preload" to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+                <button className='hamburger' onClick={toggleMenu} aria-label='Toggle Menu' style={hamburgerColor}> {menuOpen ? '✖' : '☰'} </button>
+                <ul className={`navbar-menu  ${menuOpen ? 'open' : ''}`} style={{'--before-color': spanBeforeColor} as React.CSSProperties}>
+                    <li className={isActive("/") ? "active" : ''}><Link to="/" style={{color:style.color}}><span>Home</span></Link></li>
+                    <li className={isActive("/contact") ? "active" : ''}><Link to="/contact"style={{color:style.color}}><span>Contact</span></Link></li>
+                    <li className={isActive("/products") ? "active" : ''}><Link to="/products" style={{color:style.color}}><span>Products</span></Link></li>
                 </ul>
             </motion.nav>
             <div ref={ref} style={{ position: 'absolute', top: '10vh' }}></div>
@@ -81,7 +87,10 @@ export default Navigation;
 
 
 
-
+// interface NavigationProps {
+//     scrollPos?: number
+// }
+// const Navigation = (props:NavigationProps) => {
 // useEffect(() => {
     //     const handleScroll = () => {
     //         if (props.scrollPos !== undefined) {
@@ -113,8 +122,4 @@ export default Navigation;
     //     };
     // }, [props.scrollPos]);  
     
-    // const location = useLocation();
-
-    // const isActive = (path: string) => {
-    //     return location.pathname === path
-    // }
+    

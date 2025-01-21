@@ -90,14 +90,24 @@ text-align: center;
 
 
 @media screen and (max-width: 768px) {
-  .slider-container {
+  /* .slider-container {
     width: 50%; 
+    height: auto; 
+  } */
+
+  .container{
+    flex-direction: row;
+    padding: 0;
+  }
+  .slider-container {
+    width: 100%; 
     height: auto; 
   }
 
+
   .productImage img {
     max-height: 300px; 
-    min-height: 300px;
+    min-height: 400px;
     object-fit: cover;
     object-position: center;
   }

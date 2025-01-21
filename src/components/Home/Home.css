@@ -52,14 +52,18 @@ body{
   border-radius: 10px;
 }
 
+.productValuess{
+  padding: 20px;
+}
 
 .products{
   min-height: 100vh;
   /* height: auto; */
-  margin-top: 40px;
+  /* margin-top: 40px; */
   padding: 20px;
   
 }
+
 
 
 

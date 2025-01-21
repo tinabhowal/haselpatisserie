@@ -57,7 +57,7 @@ const About2: React.FC = React.memo(() => {
       <Navigation />
       
       <section className="aboutTop">
-        {/* <div className="aboutTop-heading">
+        <div className="aboutTop-heading">
         <motion.div
           className="first-text"
           initial={{ opacity: 0, y: 50 }}
@@ -75,7 +75,7 @@ const About2: React.FC = React.memo(() => {
         >
           Go guilt free because now healthy is also tasty!
         </motion.p>
-        </div> */}
+        </div>
       </section>
  
 

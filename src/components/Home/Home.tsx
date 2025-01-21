@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../Navigation/Navigation';
-//import ProductValues from '../ProductValues/ProductValues';
 import ProductValuesTwo from '../ProductValuesTwo/ProductValuesTwo';
 import Products from '../Products/Products';
 import './Home.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import img1 from "../../images/Group 45.png";
-// import img2 from '../../images/donuts.jpg';
 import { motion} from 'framer-motion';
 import ParallaxFloat from '../ParallaxFloat/ParallaxFloat';
 
@@ -58,12 +55,12 @@ const Home = () => {
 
 <motion.section
             className="products"
-            initial={{opacity:0, y: y}}
+            initial={{opacity:0, y: 100}}
             whileInView={{opacity: 1, y:0, }}
             viewport={{ once: false, amount: 0.1 }}
             transition={{duration:0.9, ease: 'easeInOut'}}
         >
-      <Products />
+      <Products showBestsellersOnly={true}/>
       </motion.section>
      
     </div>

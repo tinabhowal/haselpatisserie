@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montaga&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poiret+One&display=swap');
 
 .navbar {
     display: flex;
@@ -16,11 +18,14 @@
 }
 
 .navbar-logo {
+    /* color: #DB8063; */
     color: white;
     /* font-family: "Pacifico", cursive; */
-    font-weight: 200;
+    font-family: "Poiret One", serif;
+    
+    font-weight: bold;
     transition: all 0.4s ease-in-out;
-    white-space: nowrap;;
+    white-space: nowrap;
 }
 
 .hamburger{
@@ -28,12 +33,12 @@
     background: none;
     border: none;
     font-size: 2rem;
-    color: whitesmoke;
+    color: white;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
     position: absolute;
-    right: 0;
+    right: 5%;
     padding: 10px
 }
 
@@ -44,12 +49,41 @@
 }
 
 .navbar-menu li a {
-    color: white;
+    /* color:  #DB8063; */
+    color: white; 
     text-decoration: none;
-    font-family:'Montaga, serif';
-    
+    font-family: "Montaga", serif;
+    font-weight: 300;
+    font-style: normal;
+    transition: color 0.4s ease-in-out;
 }
 
+
+
+.navbar-menu li a span {
+    position: relative; 
+    display: inline-block;
+}
+
+.navbar-menu li a span::before {
+    content: ''; /* This creates the line */
+    position: absolute;
+    bottom: -2px; /* Adjust the position of the line relative to the text */
+    left: 50%; /* Start at the middle */
+    width: 0%; /* Initial width of the line */
+    height: 2px; /* Line height */
+    background-color: var(--before-color, white); /* Line color */
+    transition: width 0.4s ease-in-out, left 0.4s ease-in-out, right 0.4s ease-in-out; /* Smooth animation */
+    transform: translateX(-50%);
+}
+
+.navbar-menu li a:hover span::before {
+    width: 100%; /* Stretch the line to full width */
+    left: 50%; /* Align it to the start of the link */
+    right: 50%;
+    background-color: var(--before-color, white);
+    transition: color 0.4s ease-in-out;
+}
 
 
 .navbar-menu li:last-child a {
@@ -57,14 +91,21 @@
 }
 
 
+.navbar-menu li.active a span::before {
+    width: 100%; /* Full width for active link */
+    background-color: var(--before-color, white);/* Same as hover color */
+    transition: color 0.4s ease-in-out;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+}
 
 .navbar-menu li.active a {
-    font-weight: bolder;
+    /* color: #DB8063;  */
+    color: white;
 }
 
-.navbar-menu li:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+
 
 @media screen and (max-width: 768px) { 
     .navbar {

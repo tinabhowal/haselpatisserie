@@ -21,7 +21,7 @@
     height: 100vh;
     width: 100vw;
     /* padding: 100px 0 0 0; */
-    background-image: url('../../images/aboutbg.png');
+    background-image: url('../../images/aboutbg2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #FFE7DA;
@@ -605,7 +605,8 @@ svg {
 
 @media screen and (min-width: 480px) and (max-width: 1024px) {
   .aboutTop {
-    background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.webp');
+    /* background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.webp'); */
+    background-image: url('../../images/alejandro-aznar-DycZlkOzJSk-unsplash\ 1.jpg');
     background-position: center center;
     background-size: cover; 
     background-attachment: fixed; 
@@ -616,7 +617,8 @@ svg {
 
 @media screen and (max-width: 480px) {
   .aboutTop {
-    background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.webp');
+    /* background-image: url('../../images/fernanda-martinez-P4EtUOqkKfc-unsplash.webp');  */
+    background-image: url('../../images/alejandro-aznar-DycZlkOzJSk-unsplash\ 1.jpg');
     background-position: center center;
     background-size: cover; 
     background-attachment: fixed; 

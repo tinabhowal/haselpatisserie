@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
-// import { motion} from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store'; // Update with your actual store path
 import './Products.css';
 
-const Products = () => {
- 
-  const cakesFromStore = useSelector((state: RootState) => state.cakes.cakes);
-  const cakes = cakesFromStore.filter((cake) => cake.BestSeller === true);
+interface ProductsProps {
+  showBestsellersOnly?: boolean;
+}
 
-  const [flipped, setFlipped] = useState<{[key: number]: boolean}>({});
+const Products = ({showBestsellersOnly = false }: ProductsProps) => {
+  const cakesFromStore = useSelector((state: RootState) => state.cakes.cakes);
+
+  
+  const cakes = showBestsellersOnly
+    ? cakesFromStore.filter((cake) => cake.BestSeller === true)
+    : cakesFromStore;
+
+  const [flipped, setFlipped] = useState<{ [key: number]: boolean }>({});
+
   const categories = [
     'All',
     'Cup cake',
@@ -30,15 +37,14 @@ const Products = () => {
     setSelectedCategory(category);
   };
 
-
   const toggled = (index: number) => {
-    setFlipped((prev) => ({...prev, [index]: !prev[index]}))
-  }
+    setFlipped((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
 
   return (
     <div className="section">
       <div className="contents">
-        <h1>Our Best Sellers!</h1>
+        <h1>{showBestsellersOnly ? 'Our Best Sellers!' : 'Our Products'}</h1>
         <div className="categoryButtons">
           {categories.map((item) => (
             <button
@@ -64,25 +70,24 @@ const Products = () => {
                 boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
               }}
             >
-
-              <div className='tileInner'>
-                <div className='tileFront'>
-                {item.BestSeller && <div className="bestseller-badge">Bestseller</div>}
-              <div className="productTilesImage">
-                <LazyLoadImage
-                  src={item.ImagePath}
-                  alt={item.Name}
-                  effect="blur"
-                  width="100%"
-                  height="100%"
-                  srcSet={`http://localhost:8080/${item.ImagePath} 300w, http://localhost:8080/${item.ImagePath} 600w, http://localhost:8080/${item.ImagePath} 1200w`}
-                  sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
-                />
-              </div>
-              <div className="productTilesDescription">{item.Name}</div>
+              <div className="tileInner">
+                <div className="tileFront">
+                  {item.BestSeller && <div className="bestseller-badge">Bestseller</div>}
+                  <div className="productTilesImage">
+                    <LazyLoadImage
+                      src={item.ImagePath}
+                      alt={item.Name}
+                      effect="blur"
+                      width="100%"
+                      height="100%"
+                      srcSet={`http://localhost:8080/${item.ImagePath} 300w, http://localhost:8080/${item.ImagePath} 600w, http://localhost:8080/${item.ImagePath} 1200w`}
+                      sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
+                    />
+                  </div>
+                  <div className="productTilesDescription">{item.Name}</div>
                 </div>
 
-                <div className='tileBack'>
+                <div className="tileBack">
                   <h3>{item.Name}</h3>
                   <p>{item.Description}</p>
                 </div>
@@ -96,6 +101,11 @@ const Products = () => {
 };
 
 export default Products;
+
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 // Lazy load components
 const Home = React.lazy(() => import('./components/Home/Home'));
-const Contact = React.lazy(() => import('./components/Contact/Contact'));
+const Productss = React.lazy(() => import('./components/Productss/Productss'));
 const About2 = React.lazy(() => import('./components/About2/About2'));
 
 function App() {
@@ -40,8 +40,8 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About2 />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<About2 />} />
+          <Route path="/products" element={<Productss />} />
         </Routes>
       </Suspense>
     </div>
