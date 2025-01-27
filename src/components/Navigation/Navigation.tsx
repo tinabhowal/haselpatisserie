@@ -42,8 +42,8 @@ import './Navigation.css';
     
         } else {
             setStyle({
-                background: 'rgba(255, 255, 255, 0.3)', 
-                backdropFilter: 'blur(10px)',
+                background: 'rgba(255, 255, 255, 0.70)', 
+                backdropFilter: 'blur(30px)',
                 paddingLeft: '2rem',
                 paddingRight: '2rem',
                 fontSize: '1.3rem',

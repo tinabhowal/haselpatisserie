@@ -8,10 +8,9 @@ interface ProductsProps {
   showBestsellersOnly?: boolean;
 }
 
-const Products = ({showBestsellersOnly = false }: ProductsProps) => {
+const Products = ({ showBestsellersOnly = false }: ProductsProps) => {
   const cakesFromStore = useSelector((state: RootState) => state.cakes.cakes);
 
-  
   const cakes = showBestsellersOnly
     ? cakesFromStore.filter((cake) => cake.BestSeller === true)
     : cakesFromStore;
@@ -40,6 +39,13 @@ const Products = ({showBestsellersOnly = false }: ProductsProps) => {
   const toggled = (index: number) => {
     setFlipped((prev) => ({ ...prev, [index]: !prev[index] }));
   };
+
+  const generateWhatsAppLink = (productImage: string, productName: string, productDescription: string) => {
+    const phoneNumber = '+919742727643'; 
+    const message = `Hello, I want to enquire about the product: ${productName}. ${productDescription ? `Description: ${productDescription}` : ''}%0A%0AImage: ${productImage}`;
+    return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+};
+
 
   return (
     <div className="section">
@@ -90,6 +96,15 @@ const Products = ({showBestsellersOnly = false }: ProductsProps) => {
                 <div className="tileBack">
                   <h3>{item.Name}</h3>
                   <p>{item.Description}</p>
+                  <a
+                    href={generateWhatsAppLink(`http://localhost:8080/${item.ImagePath}`, item.Name, item.Description)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whatsapp-link"
+                  >
+                    Contact via WhatsApp
+                  </a>
+
                 </div>
               </div>
             </div>
@@ -101,6 +116,10 @@ const Products = ({showBestsellersOnly = false }: ProductsProps) => {
 };
 
 export default Products;
+
+
+
+
 
 
 

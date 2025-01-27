@@ -1,0 +1,60 @@
+:root{
+    --font-family-main: 'Montaga', serif; 
+    --main-color: #AA624F;
+    --secondary-color: #C47C69;
+    --accent-color: #D89B8A;
+    --gray-color: #9d9999;
+    font-size: 16px;
+  }
+  
+.contactParentDiv{
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure full height */
+    padding: 0;
+    overflow-x: hidden;
+    object-fit: cover;
+    position: relative;
+}
+
+  
+.aboutTop-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 200%;
+    right: 25%;
+    margin-left: 20px;
+  }
+  
+  .first-text {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--main-color);
+    font-family: var(--font-family-main);
+    /* margin: 40px 0px 10px 20px; */
+    line-height: 1.2;  
+    /* position: absolute;
+    top: 200px; */
+  
+  }
+  
+  .second-text {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    will-change: transform;
+    line-height: 1.5;
+    font-family: var(--font-family-main);
+    /* position: absolute;
+    top: 250px; */
+    /* margin-left: 10px; */
+  }

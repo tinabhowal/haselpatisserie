@@ -1,4 +1,4 @@
-import React, {  Suspense, useMemo,} from "react";
+import React, {  useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import './About2.css';
 import Navigation from "../Navigation/Navigation";
@@ -13,14 +13,35 @@ import scroll3 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
 import scroll4 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
 import scroll5 from "../../images/confectionery.webp";
 import scroll6 from "../../images/confectionery.webp";
+import smallAboutBg from '../../images/alejandro-aznar-DycZlkOzJSk-unsplash 1.jpg';
+import bigAboutBg from '../../images/aboutbg2.jpg';
 
 
 import Form from "./Form";
-// const About2ScrollComponent = React.lazy(() => import('./About2ScrollComponent'));
+import ParallaxFloat from "../ParallaxFloat/ParallaxFloat";
+
 
 const About2: React.FC = React.memo(() => {
 
-  
+  const [largeScreen, setLargeScreen] = useState<boolean>(window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if(window.innerWidth <= 768){
+        setLargeScreen(false);
+      }else{
+        setLargeScreen(true);
+      }
+    }
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize)
+
+    return(() => {
+      window.removeEventListener('resize', handleResize)
+    })
+  },[])
 
   const memoizedImages = useMemo(() => {
     const images = [scroll1, scroll2, scroll3, scroll4, scroll5, scroll6];
@@ -57,14 +78,18 @@ const About2: React.FC = React.memo(() => {
       <Navigation />
       
       <section className="aboutTop">
-        <div className="aboutTop-heading">
+      <ParallaxFloat backgroundImages={{
+        smallScreen: smallAboutBg,
+        default: bigAboutBg,
+      }}
+      optionalContent = {largeScreen ? (<div className="aboutTop-heading">
         <motion.div
           className="first-text"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 0.8, y: 0 }}
           transition={{ duration: 1.5 }}
         >
-          Your health is our priority
+          Reach Out to Bangalore’s Best Bakery 
         </motion.div>
 
         <motion.p
@@ -73,9 +98,12 @@ const About2: React.FC = React.memo(() => {
           animate={{ opacity: 0.8, y: 0 }}
           transition={{ delay: 0.2,  duration: 1.5 }}
         >
-          Go guilt free because now healthy is also tasty!
+          Custom Cakes & Treats Made Easy!
         </motion.p>
-        </div>
+        </div>) : null}/>
+        
+
+        
       </section>
  
 
