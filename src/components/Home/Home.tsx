@@ -11,6 +11,7 @@ import bigHomeBg from '../../images/bakedwithlove3.jpg';
 // import smallHomeBg from '../../images/brent-ninaber-r98McHBXGN8-unsplash (1).webp';
 import smallHomeBg from '../../images/homesmallbg.jpg';
 import Bottom from '../Bottom/Bottom';
+import Footer from '../Footer/Footer';
 
 
 const Home = () => {
@@ -41,6 +42,8 @@ const Home = () => {
   return (
     <div className='homeDiv'> 
       <Navigation /> 
+      
+
       <section className="header"> 
         <ParallaxFloat backgroundImages={{
         smallScreen: smallHomeBg,
@@ -70,7 +73,7 @@ const Home = () => {
 
       </section>
 
-
+     
       <motion.section
             className='productValuess'
             initial={{opacity:0, y: y}}
@@ -95,7 +98,10 @@ const Home = () => {
       <section>
         <Bottom />
       </section>
-     
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };

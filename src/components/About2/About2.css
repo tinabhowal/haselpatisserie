@@ -301,7 +301,7 @@ svg {
   /* background: linear-gradient(360deg, #cee5ed, #FFFFFF); */
   box-sizing: border-box;
   background: linear-gradient(180deg, #FFE7DA,#FFFFFF);
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 20px;
   overflow-y: hidden;
   display: flex;

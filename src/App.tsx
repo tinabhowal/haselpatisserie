@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { cakesActions } from './store/store';
 import { useDispatch } from 'react-redux';
+import Delivery from './components/Delivery/Delivery';
 
 // Lazy load components
 const Home = React.lazy(() => import('./components/Home/Home'));
@@ -42,6 +43,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<About2 />} />
           <Route path="/products" element={<Productss />} />
+          <Route path="/delivery" element={<Delivery />} />
         </Routes>
       </Suspense>
     </div>

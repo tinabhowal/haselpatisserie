@@ -1,0 +1,62 @@
+:root{
+    --font-family-main: 'Montaga', serif; 
+    --main-color: #AA624F;
+    --secondary-color: #C47C69;
+    --accent-color: #D89B8A;
+    --gray-color: #9d9999;
+    --dark-gray-color: #767373;
+    --font-size: 20px;
+  }
+
+.bottomParentDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items:flex-start;
+    height: 100%;
+    width: 100%;
+    padding: 40px 0px 20px 0px;
+    margin: 40px 0px 20px 0px;
+    color: var(--main-color);
+    background: linear-gradient(180deg, #FFE7DA, #FFFFFF);
+    font-size: var(--font-size);
+}
+
+.socialMedia, .categoriess, .Information{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoriesLinks, .informationLinks{
+    text-decoration: none;
+    color: var(--dark-gray-color);
+    font-size: 16px;
+}
+
+.socialMedia a:hover {
+    color: var(--accent-color);
+  }
+
+  svg {
+    border: 1px solid #c38576;
+    fill: #c38576;
+    border-radius: 50%; 
+    padding: 10px; 
+    font-size: 1.5rem; 
+    width: 20px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease; 
+  }
+
+  .socialMedia a svg:hover, .socialMedia svg:hover {
+    background-color: #212121; 
+    color: #ffffff; 
+    fill: #ffffff
+  }
+  

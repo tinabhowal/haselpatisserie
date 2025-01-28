@@ -64,14 +64,16 @@ text-align: center;
 
 .slick-prev, .slick-next {
   color: rgba(148, 148, 148, 0.7);
+  fill: rgba(148, 148, 148, 0.7);
   cursor: pointer;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
+  transition: fill 0.3s ease-in-out
 }
 
 .slick-next{
@@ -86,7 +88,10 @@ text-align: center;
 }
 
 
-
+.slick-prev:hover, .slick-next:hover{
+  color: black;
+  fill: whitesmoke;
+}
 
 
 @media screen and (max-width: 768px) {

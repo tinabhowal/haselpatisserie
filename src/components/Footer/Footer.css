@@ -1,0 +1,18 @@
+footer {
+    background-color: #f9f9f9;
+    padding: 15px;
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #c38576;
+    margin-left: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  

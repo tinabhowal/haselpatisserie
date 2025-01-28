@@ -6,10 +6,16 @@ import { motion} from 'framer-motion';
 import ParallaxFloat from '../ParallaxFloat/ParallaxFloat';
 import bigProductssBg from '../../images/productssBigBg.jpg';
 import smallProductssBg from '../../images/productssSmallBg.png';
-
+import { useLocation } from 'react-router-dom';
+import Bottom from '../Bottom/Bottom';
+import Footer from '../Footer/Footer';
 
 const Productss = () => {
 
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get('categories');
   
 const [y, setY] = useState<number>(200);
   const [largeScreen, setLargeScreen] = useState<boolean>(window.innerWidth > 768);
@@ -74,10 +80,17 @@ const [y, setY] = useState<number>(200);
             viewport={{ once: false, amount: 0.1 }}
             transition={{duration:0.9, ease: 'easeInOut'}}
         >
-      <Products/>
+      {category? <Products initialCategory={category} /> : <Products />}
+      
       </motion.section>
 
-     
+      <section>
+        <Bottom />
+      </section>
+
+     <footer>
+      <Footer />
+     </footer>
     </div>
   );
 };

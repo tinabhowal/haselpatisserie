@@ -1,5 +1,8 @@
-import img1 from '../../images/michele-blackwell-evRB-x0TJkM-unsplash.webp';
-import img2 from '../../images/jesni-rawther-XAJRdCq7a0w-unsplash.jpg';
+import img1 from '../../images/productValues1.jpg';
+import img2 from '../../images/productvalues2.jpg';
+import img3 from '../../images/productvalues3.jpg';
+import img4 from '../../images/productvalues4.jpg';
+import img5 from '../../images/productvalues5.jpg';
 import React, { useState } from 'react';
 import Slider, { Settings } from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
@@ -42,6 +45,18 @@ const ProductValuesTwo = () => {
     {
       image: img2,
       text: 'Second paragraph text.',
+    },
+    {
+      image: img3,
+      text: 'Third paragraph text.',
+    },
+    {
+      image: img4,
+      text: 'Fourth paragraph text.',
+    },
+    {
+      image: img5,
+      text: 'Fifth paragraph text.',
     },
   ];
 

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store'; // Update with your actual store path
+import { RootState } from '../../store/store'; 
 import './Products.css';
 
 interface ProductsProps {
   showBestsellersOnly?: boolean;
+  initialCategory?: string
 }
 
-const Products = ({ showBestsellersOnly = false }: ProductsProps) => {
+const Products = ({ showBestsellersOnly = false, initialCategory }: ProductsProps) => {
+
   const cakesFromStore = useSelector((state: RootState) => state.cakes.cakes);
 
   const cakes = showBestsellersOnly
@@ -19,13 +21,21 @@ const Products = ({ showBestsellersOnly = false }: ProductsProps) => {
 
   const categories = [
     'All',
-    'Cup cake',
+    'Cakes',
     'Energy bar',
-    'Birthday cake',
-    'Healthy snacks',
-    'Choco chips',
+    'Healthy Snacks',
   ];
+
+  useEffect(() => {
+    if(initialCategory){
+      setSelectedCategory(initialCategory)
+    }
+  },[initialCategory])
+
+  
   const [selectedCategory, setSelectedCategory] = useState<string | null>('All');
+
+ 
 
   const filteredProducts =
     selectedCategory === 'All'

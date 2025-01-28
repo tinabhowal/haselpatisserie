@@ -1,6 +1,7 @@
-import React, {  useEffect, useMemo, useState } from "react";
+import React, {  useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import './About2.css';
+import { useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 // import img from "../../images/quin-engle-QRpNjzEX1eU-unsplash.webp";
 import About2Feedback from "./About2Feedback";
@@ -19,12 +20,14 @@ import bigAboutBg from '../../images/aboutbg2.jpg';
 
 import Form from "./Form";
 import ParallaxFloat from "../ParallaxFloat/ParallaxFloat";
+import Bottom from "../Bottom/Bottom";
+import Footer from "../Footer/Footer";
 
 
 const About2: React.FC = React.memo(() => {
 
   const [largeScreen, setLargeScreen] = useState<boolean>(window.innerWidth > 768);
-
+  
   useEffect(() => {
     const handleResize = () => {
       if(window.innerWidth <= 768){
@@ -42,6 +45,8 @@ const About2: React.FC = React.memo(() => {
       window.removeEventListener('resize', handleResize)
     })
   },[])
+
+
 
   const memoizedImages = useMemo(() => {
     const images = [scroll1, scroll2, scroll3, scroll4, scroll5, scroll6];
@@ -72,6 +77,17 @@ const About2: React.FC = React.memo(() => {
   ), [memoizedScrollChildren]);
 
 
+  const location = useLocation();
+  const middleRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const scrollTo = queryParams.get('scrollTo');
+
+    if(scrollTo === 'enquiries' && middleRef.current){
+      middleRef.current.scrollIntoView({behavior: 'smooth'})
+    }
+  },[location.search])
   
   return (
     <div className="about2Page">
@@ -113,6 +129,7 @@ const About2: React.FC = React.memo(() => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: 'easeInOut' }}    
         viewport={{ once: false, amount: 0.1 }}
+        ref={middleRef}
       >
 
         
@@ -128,7 +145,7 @@ const About2: React.FC = React.memo(() => {
 
           <div className="middleText-content-subHeading">
           <p>
-          Order with ease on WhatsApp, Instagram, email, or phone.
+          Order with ease on WhatsApp, Instagram, or phone.
           </p>
           </div>
 
@@ -166,7 +183,7 @@ const About2: React.FC = React.memo(() => {
           </p>
         </div>
 
-        <div className="middleText2">
+        {/* <div className="middleText2">
           <p>
             <a href="mailto:rupal.sngh@gmail.com"
             target="_blank" 
@@ -182,7 +199,7 @@ const About2: React.FC = React.memo(() => {
               rupal.sngh@gmail.com
             </a>
           </p>
-        </div>
+        </div> */}
 
         <div className="middleText2">
           <p>
@@ -222,7 +239,13 @@ const About2: React.FC = React.memo(() => {
         <About2Feedback />
       </section>
 
+      <section>
+        <Bottom />
+      </section>
         
+      <footer>
+        <Footer />
+      </footer>
       
     </div>
   );
