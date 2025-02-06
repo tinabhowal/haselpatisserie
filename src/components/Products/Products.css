@@ -1,11 +1,32 @@
-.section {
-    padding: 20px;
+:root{
+  --font-family-main: 'Montaga', serif; 
+  --main-color: #AA624F;
+  --secondary-color: #C47C69;
+  --accent-color: #D89B8A;
+  --gray-color: #9d9999;
+  --dark-gray-color: #767373;
+  --font-size: 20px;
+}
+
+.productsSection {
+    padding: 40px 20px 20px 20px;
+    font-family: var(--font-family-main);
   }
   
   .contents {
     text-align: center;
   }
   
+  .productsSectionHeading{
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--main-color);
+    font-family: var(--font-family-main);
+  }
+
   .productTilesContainer {
     display: flex;
     flex-direction: row;
@@ -105,15 +126,22 @@
     gap: 1rem;
     justify-content: center;
     margin: 20px;
+    
   }
+
+ 
 
   .categoryButtons button{
     border: none;
     border-radius: 4px;
     padding: 10px;
-    width: 100px;
+    width: 120px;
     height: auto;
-    background:rgb(245, 244, 239)
+    background:rgb(243, 242, 240); 
+    font-family: var(--font-family-main);
+    color: var(--main-color);
+    font-size: var(--font-size);
+    white-space: nowrap;
   }
 
   .categoryButtons button:hover{
@@ -124,11 +152,60 @@
 
   .categoryButtons button.selected{
     /* background-color: #9F684F;  */
-    background-color:burlywood; 
+    background-color:var(--secondary-color); 
     color: white; 
     box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.2);
   }
 
+ 
+
+  .categoryDropdown {
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    width: 200px;
+    height: auto;
+    background: rgb(243, 242, 240); 
+    font-family: var(--font-family-main);
+    color: var(--main-color);
+    text-align: center;
+    appearance: none; 
+    outline: none; 
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');  
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px; 
+  }
+  
+  .categoryDropdown:hover {
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  
+  }
+  .categoryDropdown:focus {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  
+  /* Style the dropdown arrow */
+  .categoryDropdown::-ms-expand {
+    display: none;  
+    /* Hide default dropdown arrow in IE/Edge */
+  }
+  
+ 
+  
+  
+  .categoryDropdown option {
+    background: rgb(243, 242, 240);
+    color: var(--main-color);
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
 
     
   .tileInner {
@@ -168,10 +245,15 @@
     background: #f8f8f8;
     transform: rotateY(180deg);
     padding: 20px;
-    box-sizing: border-box;
+    
   }
   
 
+  @media screen and (max-width: 480px){
+    .productsSectionHeading{
+      font-size: 1.8rem;
+    }
+  }
 
 
 

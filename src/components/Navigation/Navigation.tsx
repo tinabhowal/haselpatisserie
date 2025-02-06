@@ -47,11 +47,11 @@ import './Navigation.css';
                 paddingLeft: '2rem',
                 paddingRight: '2rem',
                 fontSize: '1.3rem',
-                color: '#DB8063'
+                color: '#AA624F;'
             })
-            setNavLogoFont({fontSize: window.innerWidth <= 768? '2rem' :'2rem', color: '#DB8063'})
-            setHamburgerColor({color:'#DB8063'})
-            setSpanBeforeColor('#DB8063');
+            setNavLogoFont({fontSize: window.innerWidth <= 768? '2rem' :'2rem', color: '#AA624F'})
+            setHamburgerColor({color:'#AA624F'})
+            setSpanBeforeColor('#AA624F');
         }
     }, [isInView]);
 
@@ -72,9 +72,9 @@ import './Navigation.css';
                 <div className="navbar-logo" style={navLogoFont}>Hazel Patisserie</div>
                 <button className='hamburger' onClick={toggleMenu} aria-label='Toggle Menu' style={hamburgerColor}> {menuOpen ? '✖' : '☰'} </button>
                 <ul className={`navbar-menu  ${menuOpen ? 'open' : ''}`} style={{'--before-color': spanBeforeColor} as React.CSSProperties}>
-                    <li className={isActive("/") ? "active" : ''}><Link to="/" style={{color:style.color}}><span>Home</span></Link></li>
-                    <li className={isActive("/contact") ? "active" : ''}><Link to="/contact"style={{color:style.color}}><span>Contact</span></Link></li>
-                    <li className={isActive("/products") ? "active" : ''}><Link to="/products" style={{color:style.color}}><span>Products</span></Link></li>
+                    <li className={isActive("/") ? "active" : ''}><Link to="/" style={{color: hamburgerColor.color}} onClick={() => window.scrollTo(0,0)}><span>Home</span></Link></li>
+                    <li className={isActive("/contact") ? "active" : ''}><Link to="/contact"style={{color:hamburgerColor.color}} onClick={() => window.scrollTo(0,0)}><span>Contact</span></Link></li>
+                    <li className={isActive("/products") ? "active" : ''}><Link to="/products" style={{color:hamburgerColor.color}} onClick={() => window.scrollTo(0,0)}><span>Products</span></Link></li>
                 </ul>
             </motion.nav>
             <div ref={ref} style={{ position: 'absolute', top: '10vh' }}></div>

@@ -1,8 +1,8 @@
-import img1 from '../../images/productValues1.jpg';
-import img2 from '../../images/productvalues2.jpg';
-import img3 from '../../images/productvalues3.jpg';
-import img4 from '../../images/productvalues4.jpg';
-import img5 from '../../images/productvalues5.jpg';
+import img1 from '../../images/productvalues1.png';
+import img2 from '../../images/productvalues2.png';
+import img3 from '../../images/productvalues3.png';
+import img4 from '../../images/productvalues4.png';
+import img5 from '../../images/productvalues5.png';
 import React, { useState } from 'react';
 import Slider, { Settings } from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
@@ -40,29 +40,34 @@ const ProductValuesTwo = () => {
   const slides = [
     {
       image: img1,
-      text: 'First paragraph text.',
+      heading: 'Pure, Guilt-Free Indulgence',
+      text: 'Our treats are made with clean, wholesome ingredients—no refined flour, no refined sugars, and absolutely no artificial additives.',
     },
     {
       image: img2,
-      text: 'Second paragraph text.',
+      heading: 'Handcrafted with Love',
+      text: 'Every cake, cookie, and cracker is made from scratch, including our in-house compotes, fillings, and frostings. No shortcuts, just honest baking.',
     },
     {
       image: img3,
-      text: 'Third paragraph text.',
+      heading: 'Nutritious & Delicious',
+      text: 'We use a blend of millets, whole wheat, and nutrient-rich grains to create treats that are both flavorful and nourishing.',
     },
     {
       image: img4,
-      text: 'Fourth paragraph text.',
+      heading: 'A Passion for Better Baking',
+      text: 'Started by home bakers, we’re on a mission to offer a healthier, tastier alternative to overly processed store-bought sweets.',
     },
     {
       image: img5,
-      text: 'Fifth paragraph text.',
+      heading: 'Pet-Friendly Treats',
+      text: 'We care about your furry friends too! Our pet-friendly cakes and cookies are made with safe, natural ingredients—so your pets can celebrate with you.',
     },
   ];
 
   return (
     <>
-      <h2 className='whyUs' style={{fontFamily: "Montaga, serif", fontSize: "2rem", fontWeight: 400, color: "#212121"}}>Why choose us?</h2>
+      <div className='whyUs'>Why choose us?</div>
       <div className='container'>
 
         {/* Image Slider with arrows */}
@@ -92,6 +97,7 @@ const ProductValuesTwo = () => {
             {slides.map((slide, index) => (
               <div key={index} className='productss'>
                 <div className='productDescription'>
+                  <p className='productDescription-heading'>{slide.heading}</p>
                   <p>{slide.text}</p>
                 </div>
               </div>

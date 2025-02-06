@@ -4,7 +4,7 @@
   --secondary-color: #C47C69;
   --accent-color: #D89B8A;
   --gray-color: #9d9999;
-  font-size: 16px;
+  --font-size: 16px;
 }
 
 body{
@@ -30,20 +30,17 @@ body{
 }
 
 
-.slide {
-  height: 100%;
-  width: 100%;
-}
 
 .aboutTop-heading{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content:flex-end;
+  align-items:center; */
   position: relative;
   top: 200%;
   right: 25%;
-  margin-left: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
 }
 
 .first-text {
@@ -69,41 +66,22 @@ body{
   /* margin-left: 10px; */
 }
 
-/* .background {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
+
+
+
+.productValuess{
+  padding: 40px 20px 20px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  background-color: #7e3911; 
-} */
-
-.headerText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 2em;
-  color: white;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.productValuess{
-  padding: 20px;
+  flex-direction: column;
 }
 
 .products{
   min-height: 100vh;
   /* height: auto; */
   /* margin-top: 40px; */
-  padding: 20px;
+  /* padding: 20px; */
   
 }
 

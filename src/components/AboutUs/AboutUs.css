@@ -1,0 +1,71 @@
+:root{
+    --font-family-main: 'Montaga', serif; 
+    --main-color: #AA624F;
+    --secondary-color: #C47C69;
+    --accent-color: #D89B8A;
+    --gray-color: #9d9999;
+    --font-size: 16px;
+  }
+
+.aboutUsParentDiv{
+    font-family: var(--font-family-main);
+    background: linear-gradient(180deg, #FFE7DA, #FFFFFF);
+    /* padding: 20px; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    color: var(--secondary-color);
+    box-sizing: border-box;
+}
+
+.aboutUsContent{
+    margin-top: 60px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    text-align: center;
+    white-space: wrap;
+    font-size: 1.2rem;
+}
+
+.aboutUsContent h2{
+    color: var(--main-color);
+}
+.aboutTop-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 200%;
+    right: 25%;
+    margin-left: 20px;
+  }
+
+.first-text {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--main-color);
+    font-family: var(--font-family-main);
+    /* margin: 40px 0px 10px 20px; */
+    line-height: 1.2;  
+    /* position: absolute;
+    top: 200px; */
+  
+  }
+  
+  .second-text {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    will-change: transform;
+    line-height: 1.5;
+    font-family: var(--font-family-main);
+    /* position: absolute;
+    top: 250px; */
+    /* margin-left: 10px; */
+  }
+  

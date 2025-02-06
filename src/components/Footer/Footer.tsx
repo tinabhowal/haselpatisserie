@@ -15,6 +15,9 @@ const Footer = () => {
      Tina Bhawal
     </a>.
   </p>
+  <p className='imagesOfHazelCopyright'>
+  All product images used on this website are the exclusive property of Hazel Patisserie and are protected by copyright laws. Unauthorized use, reproduction, or distribution is strictly prohibited.
+  </p>
 </footer>
 
   )

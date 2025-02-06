@@ -1,38 +1,85 @@
-/* .App {
-  text-align: center;
+:root{
+  --font-family-main: 'Montaga', serif; 
+  --main-color: #AA624F;
+  --secondary-color: #C47C69;
+  --accent-color: #D89B8A;
+  --gray-color: #9d9999;
+  font-size: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.loadingDiv{
+position: fixed;
+top:0%;
+left:0%;
+width:100vw;
+height:100vh;
+display: grid;
+place-items: center;
+background: rgba(255, 255, 255, 0.8);
+font-size: 24px;
+font-weight: bold;
+color:  #AA624F;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.floatingWhatsApp{
+  position:fixed;
+  width: 200px;
+  height: 50px;
+  bottom: 5%;
+  right:0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+.floatingWhatsApp a svg{
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.242);
+
+  
+    /* border: 2px solid #9d9999; */
+    border: none;
+    fill: #25D366;
+    border-radius: 50%; 
+    padding: 10px; 
+    font-size: 1.5rem; 
+    width: 40px; 
+    height: 40px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease; 
+  
+  
+}
+
+.floatingWhatsApp a svg:hover, .floatingWhatsApp svg:hover {
+  background-color: #212121; 
+  color: #ffffff; 
+}
+
+.contactUsButton{
+  width: 150px;
+  height: 50px;
+  /* background: rgba(255, 255, 255, 0.333); */
+  background: rgba(169, 96, 78, 0.482);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.242);
+  border: none;
+  border-radius: 20px;
+  color: var(--main-color);
+  font-size: 1.2rem;
+  font-weight: 400;
   color: white;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.contactUsButton:hover{
+  background-color: var(--main-color);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

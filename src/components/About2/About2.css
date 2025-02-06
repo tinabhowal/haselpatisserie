@@ -14,7 +14,7 @@
     background-size: cover;
     /* background-color: #FFF0E5; */
     /* background-color: #FFE7DA; */
-    
+    box-sizing: border-box;
 }
 
   .aboutTop{
@@ -200,7 +200,7 @@
   font-size: 1.2rem;
   color: var(--primary-color); 
   transition: all 0.3s ease-in-out;
-}
+} 
 
 .middleText2 p:hover {
   transform: scale(1.05);

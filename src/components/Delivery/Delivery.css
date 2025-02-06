@@ -1,5 +1,78 @@
+:root{
+    --font-family-main: 'Montaga', serif; 
+    --main-color: #AA624F;
+    --secondary-color: #C47C69;
+    --accent-color: #D89B8A;
+    --gray-color: #9d9999;
+    --font-size: 16px;
+  }
+
 .deliveryParent{
-    height: 100vh;
-    width: 100vw;
+    font-family: var(--font-family-main);
     background: linear-gradient(180deg, #FFE7DA, #FFFFFF);
+    /* 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    color: var(--secondary-color);
+    box-sizing: border-box;
+}
+
+.deliveryContent{
+    padding: 60px 40px 0px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    /* text-align: center; */
+    /* white-space: wrap; */
+    font-size: 1.2rem;
+}
+
+.deliveryContent h2{
+    color: var(--main-color);
+    padding-top: 20px;
+}
+
+.deliverySteps{
+    margin-top: 40px;
+}
+
+.deliverP-intro{
+    color: var(--accent-color);
+    font-style: italic;
+    font-size: 1.4rem;
+}
+
+.deliverySteps-intro{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.deliverySteps ul{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: start;
+    gap: 20px;
+    padding-left: 0;
+}
+
+.deliverySteps li{
+    list-style:none;
+    color: var(--gray-color)
+}
+
+.deliverySteps li span{
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.closingLine{
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 20px;
 }

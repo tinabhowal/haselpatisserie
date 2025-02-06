@@ -3,8 +3,6 @@ import Navigation from '../Navigation/Navigation';
 import ProductValuesTwo from '../ProductValuesTwo/ProductValuesTwo';
 import Products from '../Products/Products';
 import './Home.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { motion} from 'framer-motion';
 import ParallaxFloat from '../ParallaxFloat/ParallaxFloat';
 import bigHomeBg from '../../images/bakedwithlove3.jpg';
@@ -57,6 +55,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 0.8, y: 0 }}
                 transition={{ duration: 1.5 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 Personalized Cakes & Healthy Treats in Bangalore 
               </motion.div>
@@ -66,6 +65,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 60 }}
                 animate={{ opacity: 0.8, y: 0 }}
                 transition={{ delay: 0.2,  duration: 1.5 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 Freshly Baked, Always Special!
               </motion.p>
@@ -79,7 +79,7 @@ const Home = () => {
             initial={{opacity:0, y: y}}
             whileInView={{opacity: 1, y:0, }}
             transition={{duration:0.9, ease: 'easeInOut'}}    
-            viewport={{ once: false, amount: 0.1 }}        
+            viewport={{ once: true, amount: 0.1 }}        
         >
           <ProductValuesTwo />     
          
@@ -89,7 +89,7 @@ const Home = () => {
             className="products"
             initial={{opacity:0, y: y}}
             whileInView={{opacity: 1, y:0, }}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{duration:0.9, ease: 'easeInOut'}}
         >
       <Products showBestsellersOnly={true}/>
@@ -106,7 +106,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
 
 
 

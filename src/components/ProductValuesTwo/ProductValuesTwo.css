@@ -1,10 +1,27 @@
+:root{
+  --font-family-main: 'Montaga', serif; 
+  --main-color: #AA624F;
+  --secondary-color: #C47C69;
+  --accent-color: #D89B8A;
+  --gray-color: #9d9999;
+  --font-size: 16px;
+}
+
 .whyUs{
 text-align: center;
+font-size: 2.8rem;
+    font-weight: 400; 
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--main-color);
+    font-family: var(--font-family-main);
 }
 
  .container{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items:center;
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -22,12 +39,22 @@ text-align: center;
 
 .productDescription {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   text-align: center;
-  padding: 20px; 
+  padding: 40px; 
   box-sizing: border-box;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  font-family: var(--font-family-main);
+}
+
+.productDescription .productDescription-heading{
+  font-size: larger;
+  font-weight:600;
+  font-family: var(--font-family-main);
 }
 
 .productImage {
@@ -42,7 +69,7 @@ text-align: center;
   width: 100%;
   max-height: 80vh;
   min-height: 80vh;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
@@ -120,6 +147,10 @@ text-align: center;
 
 
 @media screen and (max-width: 480px) {
+
+  .whyUs {
+    font-size: 1.8rem;
+  }
 
   .container{
     flex-direction: row;

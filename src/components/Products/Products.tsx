@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store'; 
@@ -18,21 +18,19 @@ const Products = ({ showBestsellersOnly = false, initialCategory }: ProductsProp
     : cakesFromStore;
 
   const [flipped, setFlipped] = useState<{ [key: number]: boolean }>({});
-
+  
   const categories = [
     'All',
     'Cakes',
-    'Energy bar',
-    'Healthy Snacks',
+    'Cookies',
+    'Crackers',
+    'Dessert',
+    'Healthy Bites',
+    'Pet Goodies',
+    'Hampers'
   ];
 
-  useEffect(() => {
-    if(initialCategory){
-      setSelectedCategory(initialCategory)
-    }
-  },[initialCategory])
-
-  
+   
   const [selectedCategory, setSelectedCategory] = useState<string | null>('All');
 
  
@@ -57,11 +55,36 @@ const Products = ({ showBestsellersOnly = false, initialCategory }: ProductsProp
 };
 
 
+useEffect(() => {
+ 
+  if (initialCategory) {
+    setSelectedCategory(initialCategory);
+  }
+}, [initialCategory]);
+
   return (
-    <div className="section">
+    <div className="productsSection">
       <div className="contents">
-        <h1>{showBestsellersOnly ? 'Our Best Sellers!' : 'Our Products'}</h1>
-        <div className="categoryButtons">
+        <div className='productsSectionHeading'>{showBestsellersOnly ? 'Our Best Sellers!' : 'Our Products'}</div>
+        {window.innerWidth <=768? (
+          <div className="categoryButtons">
+          
+            <select
+              value={selectedCategory || 'All'}
+              onChange={(e) => onClickCategory(e.target.value)}
+              className='categoryDropdown'
+            >
+              {categories.map((item) => (
+                <option
+                key={item}
+                value={item}
+                >{item}</option>
+                ))}
+            </select>
+          
+        </div>
+        ) : (
+          <div className="categoryButtons">
           {categories.map((item) => (
             <button
               key={item}
@@ -72,6 +95,7 @@ const Products = ({ showBestsellersOnly = false, initialCategory }: ProductsProp
             </button>
           ))}
         </div>
+        )}
 
         <div className="productTilesContainer">
           {filteredProducts.map((item, index) => (
@@ -93,7 +117,8 @@ const Products = ({ showBestsellersOnly = false, initialCategory }: ProductsProp
                     <LazyLoadImage
                       src={item.ImagePath}
                       alt={item.Name}
-                      effect="blur"
+                      effect="opacity"
+                      threshold={100}
                       width="100%"
                       height="100%"
                       srcSet={`http://localhost:8080/${item.ImagePath} 300w, http://localhost:8080/${item.ImagePath} 600w, http://localhost:8080/${item.ImagePath} 1200w`}

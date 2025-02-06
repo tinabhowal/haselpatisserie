@@ -8,13 +8,13 @@ import About2Feedback from "./About2Feedback";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import { CiMail, CiPhone } from "react-icons/ci";
 import About2ScrollComponent from "./About2ScrollComponent";
-import scroll1 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
-import scroll2 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
-import scroll3 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
-import scroll4 from "../../images/anton-mqg-xlHRMGs-unsplash.webp";
-import scroll5 from "../../images/confectionery.webp";
-import scroll6 from "../../images/confectionery.webp";
-import smallAboutBg from '../../images/alejandro-aznar-DycZlkOzJSk-unsplash 1.jpg';
+import scroll1 from "../../images/20230517_114107973_iOS.png";
+import scroll2 from "../../images/IMG_3949.png";
+import scroll3 from "../../images/IMG_3971.png";
+import scroll4 from "../../images/IMG_4866.png";
+import scroll5 from "../../images/IMG_5610.png";
+import scroll6 from "../../images/IMG_7607.png";
+import smallAboutBg from '../../images/aboutSmallbg.jpg';
 import bigAboutBg from '../../images/aboutbg2.jpg';
 
 
@@ -70,9 +70,9 @@ const About2: React.FC = React.memo(() => {
       <About2ScrollComponent baseVelocity={-0.2}>
         {memoizedScrollChildren}
       </About2ScrollComponent>
-      <About2ScrollComponent baseVelocity={0.2}>
+      {/* <About2ScrollComponent baseVelocity={0.2}>
         {memoizedScrollChildren}
-      </About2ScrollComponent>
+      </About2ScrollComponent> */}
     </>
   ), [memoizedScrollChildren]);
 
@@ -104,6 +104,7 @@ const About2: React.FC = React.memo(() => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 0.8, y: 0 }}
           transition={{ duration: 1.5 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           Reach Out to Bangalore’s Best Bakery 
         </motion.div>
@@ -113,6 +114,7 @@ const About2: React.FC = React.memo(() => {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 0.8, y: 0 }}
           transition={{ delay: 0.2,  duration: 1.5 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           Custom Cakes & Treats Made Easy!
         </motion.p>
@@ -128,7 +130,7 @@ const About2: React.FC = React.memo(() => {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: 'easeInOut' }}    
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         ref={middleRef}
       >
 
@@ -183,7 +185,7 @@ const About2: React.FC = React.memo(() => {
           </p>
         </div>
 
-        {/* <div className="middleText2">
+        <div className="middleText2">
           <p>
             <a href="mailto:rupal.sngh@gmail.com"
             target="_blank" 
@@ -191,15 +193,15 @@ const About2: React.FC = React.memo(() => {
             >
              <CiMail style={{strokeWidth: 1, fill: '#c38576', stroke: '#c38576',}}/>
             </a>
-            <a href="mailto:rupal.sngh@gmail.com"
+            <a href="mailto:hazelpatisserie.enquiry@gmail.com"
             target="_blank" 
             rel="noopener noreferrer"
             
             >
-              rupal.sngh@gmail.com
+              hazelpatisserie.enquiry@gmail.com
             </a>
           </p>
-        </div> */}
+        </div>
 
         <div className="middleText2">
           <p>
@@ -251,7 +253,7 @@ const About2: React.FC = React.memo(() => {
   );
 });
 
-export default About2;
+export default React.memo(About2);
 
 
 

@@ -4,6 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { cakesActions } from './store/store';
 import { useDispatch } from 'react-redux';
 import Delivery from './components/Delivery/Delivery';
+import { FaWhatsapp } from "react-icons/fa6";
+import AboutUs from './components/AboutUs/AboutUs';
+import PersistLayout from './components/PersistLayout/PersistLayout';
 
 // Lazy load components
 const Home = React.lazy(() => import('./components/Home/Home'));
@@ -38,12 +41,27 @@ function App() {
 
   return (
     <div className="App">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className='loadingDiv'>Loading...</div>}>
+      <div className="floatingWhatsApp">
+        
+        <a href="https://wa.me/+919742727643?text=Hi%20%0AI%20would%20like%20to%20place%20an%20order%20and%20would%20like%20to%20discuss%20the%20same." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  >
+                  {/* <FaWhatsapp /> */}
+                  <button className="contactUsButton">Contact us</button>
+                  </a>
+    
+      
+      </div>
         <Routes>
+        {/* <Route element={<PersistLayout />}> */}
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<About2 />} />
           <Route path="/products" element={<Productss />} />
           <Route path="/delivery" element={<Delivery />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
+          {/* </Route> */}
         </Routes>
       </Suspense>
     </div>

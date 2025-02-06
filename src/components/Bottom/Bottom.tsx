@@ -7,7 +7,7 @@ const Bottom = () => {
   return (
     <div className='bottomParentDiv'>
         <div className="socialMedia">
-            SOCIAL MEDIA
+            <p>SOCIAL MEDIA</p>
             <div className="anchorlinks">
                 <a href="https://www.instagram.com/hazelpatisserie?igsh=cHVzNmI2NGJzbmUy" 
                             target="_blank" 
@@ -28,13 +28,15 @@ const Bottom = () => {
 
         
             <div className="categoriess">
-                CATEGORIES
-
+                <p>CATEGORIES</p>
                 <div className="categoriesLinksDiv">
                     <Link to={`/products?categories=${encodeURIComponent('Cakes')}`} className='categoriesLinks'>Cakes</Link>
                 </div>
                 <div className="categoriesLinksDiv">
-                    <Link to={`/products?categories=${encodeURIComponent('Healthy Snacks')}`} className='categoriesLinks'>Snacks</Link>
+                    <Link to={`/products?categories=${encodeURIComponent('Healthy Bites')}`} className='categoriesLinks'>Healthy Bites</Link>
+                </div>
+                <div className="categoriesLinksDiv">
+                    <Link to={`/products?categories=${encodeURIComponent('Cookies')}`} className='categoriesLinks'>Cookies</Link>
                 </div>
                 <div className="categoriesLinksDiv">
                     <Link to={`/products?categories=${encodeURIComponent('Hampers')}`} className='categoriesLinks'>Hampers</Link>
@@ -43,13 +45,12 @@ const Bottom = () => {
 
 
             <div className="Information">
-                INFORMATION
-
+                <p>INFORMATION</p>
                 <div className="informationLinksDiv">
-                <Link to='/delivery' className='informationLinks'>Delivery</Link>
+                    <Link to='/aboutUs' className='informationLinks' onClick={() => window.scrollTo(0,0)}>About us</Link>
                 </div>
                 <div className="informationLinksDiv">
-                   <Link to={`/contact?scrollTo=enquiries`} className='informationLinks'>Enqueries</Link>
+                <Link to='/delivery' className='informationLinks' onClick={() => window.scrollTo(0,0)}>Delivery</Link>
                 </div>
                 <div className="informationLinksDiv">
                    <Link to={`/contact?scrollTo=enquiries`} className='informationLinks'>Contact</Link>
