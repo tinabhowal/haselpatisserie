@@ -1,7 +1,7 @@
 import img1 from '../../images/productvalues1.png';
 import img2 from '../../images/productvalues2.png';
-import img3 from '../../images/productvalues3.png';
-import img4 from '../../images/productvalues4.png';
+import img3 from '../../images/productvalues3.jpg';
+import img4 from '../../images/productvalues4.jpg';
 import img5 from '../../images/productvalues5.png';
 import React, { useState } from 'react';
 import Slider, { Settings } from 'react-slick';

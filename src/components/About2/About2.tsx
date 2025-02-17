@@ -70,9 +70,9 @@ const About2: React.FC = React.memo(() => {
       <About2ScrollComponent baseVelocity={-0.2}>
         {memoizedScrollChildren}
       </About2ScrollComponent>
-      {/* <About2ScrollComponent baseVelocity={0.2}>
+      <About2ScrollComponent baseVelocity={0.2}>
         {memoizedScrollChildren}
-      </About2ScrollComponent> */}
+      </About2ScrollComponent>
     </>
   ), [memoizedScrollChildren]);
 

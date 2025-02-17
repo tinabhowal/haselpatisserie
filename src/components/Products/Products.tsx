@@ -48,12 +48,39 @@ const Products = ({ showBestsellersOnly = false, initialCategory }: ProductsProp
     setFlipped((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
-  const generateWhatsAppLink = (productImage: string, productName: string, productDescription: string) => {
+  const generateWhatsAppLink = (productImage: string, productName: string, ) => {
     const phoneNumber = '+919742727643'; 
-    const message = `Hello, I want to enquire about the product: ${productName}. ${productDescription ? `Description: ${productDescription}` : ''}%0A%0AImage: ${productImage}`;
+    const message = `Hello, I want to enquire about the product: ${productName}. %0A%0AImage: ${productImage}`;
     return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 };
 
+
+const cakeDescription = (
+  <div className="cakeDescription">
+    <h2>Custom Eggless Cakes – Made Just for You! 🎂</h2>
+    <p>
+      Make your special occasions even more unforgettable with our bespoke eggless cakes! 
+      Our expert bakers craft each sponge from scratch, using only the finest ingredients 
+      and no artificial flavorings, stabilizers, or premixes. We ensure moist, fluffy, and 
+      delicious cakes that exceed expectations.
+    </p>
+    <p>
+      Choose from classic flavors like vanilla, chocolate, and pineapple, or indulge in 
+      exotic delights like Tiramisu, Pina-Colada, rose pistachio, or nut pralines. We also 
+      customize flavors to suit your unique taste.
+    </p>
+    <p><strong>Starting at ₹1700/- per kg</strong>, our cakes include:
+      <ul className='cakeDescription-ul'>
+        <li>✨ Fresh flowers for elegance</li>
+        <li>🎨 2D fondant structures for a creative touch</li>
+        <li>📸 Edible prints for personalization</li>
+        <li>🟣 Faux balls for added texture</li>
+      </ul>
+      Prices vary based on design complexity, flavors, and decorations.
+    </p>
+    <p>Let us bring your vision to life—order now for an unforgettable celebration! 🎉</p>
+  </div>
+);
 
 useEffect(() => {
  
@@ -97,8 +124,9 @@ useEffect(() => {
         </div>
         )}
 
+       {selectedCategory === "Cakes" && cakeDescription}
         <div className="productTilesContainer">
-          {filteredProducts.map((item, index) => (
+          {filteredProducts.map((item, index) => (    
             <div
               className={`productTiles ${flipped[index] ? 'flipped' : ''}`}
               key={index}
@@ -125,19 +153,20 @@ useEffect(() => {
                       sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
                     />
                   </div>
-                  <div className="productTilesDescription">{item.Name}</div>
+                  <div className="productTilesDescription"><h3>{item.Name}</h3></div>
                 </div>
 
                 <div className="tileBack">
                   <h3>{item.Name}</h3>
                   <p>{item.Description}</p>
+                  <p>Ingredients:&nbsp;{item.Ingredients}</p>
                   <a
-                    href={generateWhatsAppLink(`http://localhost:8080/${item.ImagePath}`, item.Name, item.Description)}
+                    href={generateWhatsAppLink(`http://localhost:8080/${item.ImagePath}`, item.Name, )}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="whatsapp-link"
                   >
-                    Contact via WhatsApp
+                    Order/Enquire via WhatsApp
                   </a>
 
                 </div>

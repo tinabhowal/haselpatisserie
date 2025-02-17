@@ -4,9 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { cakesActions } from './store/store';
 import { useDispatch } from 'react-redux';
 import Delivery from './components/Delivery/Delivery';
-import { FaWhatsapp } from "react-icons/fa6";
+//import { FaWhatsapp } from "react-icons/fa6";
 import AboutUs from './components/AboutUs/AboutUs';
-import PersistLayout from './components/PersistLayout/PersistLayout';
+//import PersistLayout from './components/PersistLayout/PersistLayout';
 
 // Lazy load components
 const Home = React.lazy(() => import('./components/Home/Home'));

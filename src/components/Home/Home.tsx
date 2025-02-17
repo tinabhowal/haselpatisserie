@@ -10,6 +10,8 @@ import bigHomeBg from '../../images/bakedwithlove3.jpg';
 import smallHomeBg from '../../images/homesmallbg.jpg';
 import Bottom from '../Bottom/Bottom';
 import Footer from '../Footer/Footer';
+import Trending from '../Trending/Trending';
+
 
 
 const Home = () => {
@@ -73,7 +75,16 @@ const Home = () => {
 
       </section>
 
-     
+      <motion.section
+           className='trendingNowSection'
+           initial={{opacity:0, y: y}}
+           whileInView={{opacity:1, y:0}}
+           transition={{duration: 0.9}}
+           viewport={{once: true, amount: 0.1}}
+          >
+            <Trending />
+</motion.section>
+
       <motion.section
             className='productValuess'
             initial={{opacity:0, y: y}}
@@ -89,7 +100,7 @@ const Home = () => {
             className="products"
             initial={{opacity:0, y: y}}
             whileInView={{opacity: 1, y:0, }}
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.01 }}
             transition={{duration:0.9, ease: 'easeInOut'}}
         >
       <Products showBestsellersOnly={true}/>

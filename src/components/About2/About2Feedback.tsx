@@ -81,7 +81,7 @@ const About2Feedback = () => {
            
             <AnimatePresence>
                 {selectedId && (
-                    <div>
+                    <div> 
                         <motion.div
                             className="overlay" 
                             initial={{ opacity: 0 }}

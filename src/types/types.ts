@@ -22,6 +22,7 @@ export interface Cake {
     Veg: boolean,
     BestSeller: boolean,
     Category: string,
+    Trending: boolean,
     Theme: string
     ul: {
         img1: string;

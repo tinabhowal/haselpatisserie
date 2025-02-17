@@ -11,7 +11,7 @@
 text-align: center;
 font-size: 2.8rem;
     font-weight: 400; 
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     line-height: 1.2;
     color: var(--main-color);
     font-family: var(--font-family-main);
@@ -162,8 +162,8 @@ font-size: 2.8rem;
   }
 
   .productImage img {
-    max-height: 200px;
-    min-height: 200px; 
+    max-height: 300px;
+    min-height: 300px; 
     padding: 10px;
   }
 

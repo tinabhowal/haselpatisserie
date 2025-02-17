@@ -1,4 +1,4 @@
-.carousel-container {
+  .carousel-container {
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -12,16 +12,19 @@
   }
   
   .carousel-image {
-    flex: 0 0 33.33%; /* 3 images fit in the viewport */
+    flex: 0 0 33.33%; 
     transition: transform 0.6s ease;
     padding: 10px;
+    height: 300px;
+    width: 100px;
   }
   
   .carousel-image.active {
-    transform: scale(1.2); /* Zoom the active (middle) image */
+    transform: scale(1.2); 
   }
   
   .carousel-image {
-    transform: scale(1); /* Default state */
+    transform: scale(1); 
   }
   
+

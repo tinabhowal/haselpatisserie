@@ -25,7 +25,7 @@ const [y, setY] = useState<number>(200);
 
     const handleResize = () => {
       if(window.innerWidth <=768){
-        setY(50);
+        setY(100);
         setLargeScreen(false)
       }else{
         setY(200);
@@ -85,11 +85,11 @@ const [y, setY] = useState<number>(200);
 
       <motion.section
             ref={productsSectionRef}
-            className="products"
+            className="productsss"
             initial={{opacity:0, y: y}}
             whileInView={{opacity: 1, y:0, }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{duration:0.9, ease: 'easeInOut'}}
+            transition={{duration:0.9, ease: 'easeInOut'}}    
+            viewport={{ once: true, amount: 0.01 }}    
         >
       {category? <Products initialCategory={category} /> : <Products />}
       

@@ -1,0 +1,152 @@
+:root{
+    --font-family-main: 'Montaga', serif; 
+    --main-color: #AA624F;
+    --secondary-color: #C47C69;
+    --accent-color: #D89B8A;
+    --gray-color: #9d9999;
+    --font-size: 16px;
+  }
+  
+  .trendingNowHeading{
+  text-align: center;
+  font-size: 2.8rem;
+      font-weight: 400; 
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: var(--main-color);
+      font-family: var(--font-family-main);
+  }  
+  
+  
+  .trendingParentDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw; 
+    height: 600px;
+    padding: 40px 60px 20px 60px;
+    box-sizing: border-box;
+   }
+
+  .trendingDescription{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+    width:50%;
+    font-size: 1.2rem;
+    font-family: var(--font-family-main);
+  }
+
+  .trendingDescription .trendingDescriptionHeading{
+    font-size: larger;
+    font-weight: 600;
+    font-family: var(--font-family-main);
+  }
+
+  .trendingDescription p{
+    text-align: center;
+    font-family: var(--font-family-main);
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+  }
+
+
+  .trendingImagesDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%; 
+    max-height: 500px;
+    width:50%;
+  }
+  
+  .trendingImages {
+    width: 100%; 
+    height: 500px;
+    object-fit: cover; 
+    display: block;
+    object-position: center;
+  }
+  
+  .slick-dots {
+    bottom: -30px; 
+  }
+
+  .contactUsButtonForTrending{
+    width: 150px;
+  height: 50px;
+  /* background: rgba(255, 255, 255, 0.333); */
+  background: rgba(169, 96, 78, 0.482);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.242);
+  border: none;
+  border-radius: 20px;
+  color: var(--main-color);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.contactUsButtonForTrending:hover{
+  background-color: var(--main-color);
+}
+  
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 60px;
+    line-height: 1;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.443);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.3s ease-in-out;
+}
+
+.slick-prev:hover::before, .slick-next:hover::before {
+    color: rgb(255, 255, 255);
+}
+
+  @media screen and (max-width: 480px){
+   
+      .trendingNowHeading{
+        font-size: 1.8rem
+      }
+
+      .trendingDescription{
+        font-size: 0.9rem;
+      }
+    
+  }
+
+
+  @media screen and (max-width: 768px){
+    .trendingParentDiv{
+        flex-direction: column;
+        padding: 0px 20px 20px 20px;
+        height: fit-content;
+        flex-direction: column-reverse;
+       }
+
+       .trendingImages {
+        height: 400px;
+      }
+
+      .trendingDescription{
+        width: 100%;
+        font-size: 1.2rem;
+      }
+
+      .trendingDescription p{
+        font-size: 0.9rem;
+      }
+
+      .trendingNowHeading{
+        margin-bottom: 40px;
+      }
+  }

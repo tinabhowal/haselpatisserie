@@ -9,22 +9,21 @@
   
 .contactParentDiv{
     box-sizing: border-box;
-    width: 100vw;
-    overflow-x: hidden;
+    
 }
 
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ensure full height */
+    height: 100vh; 
     padding: 0;
     overflow-x: hidden;
     object-fit: cover;
     position: relative;
 }
 
-  
+ /*  
 .aboutTop-heading{
     display: flex;
     flex-direction: column;
@@ -41,10 +40,9 @@
     font-weight: 400;
     color: var(--main-color);
     font-family: var(--font-family-main);
-    /* margin: 40px 0px 10px 20px; */
+    
     line-height: 1.2;  
-    /* position: absolute;
-    top: 200px; */
+    
   
   }
   
@@ -54,7 +52,10 @@
     will-change: transform;
     line-height: 1.5;
     font-family: var(--font-family-main);
-    /* position: absolute;
-    top: 250px; */
-    /* margin-left: 10px; */
+    
+  } */
+
+  .productsss{
+    margin-top: 20px;
+  
   }

@@ -66,11 +66,22 @@ body{
   /* margin-left: 10px; */
 }
 
-
+.trendingNowSection{
+  padding: 40px 20px 0px 20px;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  flex-direction: column;
+  height:fit-content;
+  width: 100vw;
+  box-sizing: border-box;
+  /* margin-bottom: 40px; */
+  /* overflow:hidden; */
+}
 
 
 .productValuess{
-  padding: 40px 20px 20px 20px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,10 +111,16 @@ body{
     height: 100vh;
   }
 
-  
+  .productValuess{
+    padding: 20px;
+  }
 }
 
-
+@media screen and (max-width: 768px){
+  .trendingNowSection{
+    height: fit-content;
+  }
+}
 
 
 

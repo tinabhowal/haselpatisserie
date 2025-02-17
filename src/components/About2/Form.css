@@ -109,3 +109,9 @@ input[type="file"]::-webkit-file-upload-button:hover {
     font-weight: bold;
   }
   
+
+  @media screen and (max-width: 480px){
+    label {
+      font-size: 1rem;
+    }
+  }
