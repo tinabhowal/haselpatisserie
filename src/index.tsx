@@ -10,16 +10,16 @@ import store from './store/store';
 
 //for production
 
-if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('/sw.js')
-    .then((registration) => {
-      console.log('Service worker registered:', registration);
-    })
-    .catch((error) => {
-      console.error('Service worker registration failed:', error);
-    });
-}
+// if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+//   navigator.serviceWorker
+//     .register('/sw.js')
+//     .then((registration) => {
+//       console.log('Service worker registered:', registration);
+//     })
+//     .catch((error) => {
+//       console.error('Service worker registration failed:', error);
+//     });
+// }
 
 
 //for dev
