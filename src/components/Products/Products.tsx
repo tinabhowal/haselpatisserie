@@ -149,7 +149,7 @@ useEffect(() => {
                       threshold={100}
                       width="100%"
                       height="100%"
-                      srcSet={`http://localhost:8080/${item.ImagePath} 300w, http://localhost:8080/${item.ImagePath} 600w, http://localhost:8080/${item.ImagePath} 1200w`}
+                      srcSet={`${process.env.REACT_APP_BACKEND_URL}/${item.ImagePath} 300w, ${process.env.REACT_APP_BACKEND_URL}/${item.ImagePath} 600w, ${process.env.REACT_APP_BACKEND_URL}/${item.ImagePath} 1200w`}
                       sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
                     />
                   </div>
@@ -161,7 +161,7 @@ useEffect(() => {
                   <p>{item.Description}</p>
                   <p>Ingredients:&nbsp;{item.Ingredients}</p>
                   <a
-                    href={generateWhatsAppLink(`http://localhost:8080/${item.ImagePath}`, item.Name, )}
+                    href={generateWhatsAppLink(`${process.env.REACT_APP_BACKEND_URL}/${item.ImagePath}`, item.Name, )}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="whatsapp-link"

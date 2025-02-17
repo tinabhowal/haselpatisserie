@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     const fetchCakes = async () => {
       try {
-        const response = await fetch('http://localhost:8080/cakes', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cakes`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -31,6 +31,7 @@ function App() {
         const data = await response.json();
         console.log('Fetched data:', data);
         dispatch(cakesActions.setCakes(data));
+        console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
       } catch (error) {
         console.error('Error fetching products', error);
       }
@@ -43,6 +44,7 @@ function App() {
     <div className="App">
       <Suspense fallback={<div className='loadingDiv'>Loading...</div>}>
       <div className="floatingWhatsApp">
+     
         
         <a href="https://wa.me/+919742727643?text=Hi%20%0AI%20would%20like%20to%20place%20an%20order%20and%20would%20like%20to%20discuss%20the%20same." 
                   target="_blank" 

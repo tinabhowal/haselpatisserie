@@ -53,7 +53,7 @@ const ProductDetails = (props:props) => {
                                 <>
 
                                 <div>
-    <img className='modal-content-img' src={`http://localhost:8080/${props.product.ImagePath}`}
+    <img className='modal-content-img' src={`${process.env.REACT_APP_BACKEND_URL}/${props.product.ImagePath}`}
         // {props.product.ImagePath} 
         alt={props.product.Name}>
 
