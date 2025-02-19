@@ -143,14 +143,14 @@ const About2: React.FC = React.memo(() => {
           </div>
 
           <div className="middleText-body">
+          
+          <div className="middleText">
+
           <div className="middleText-content-subHeading">
           <p>
           Order with ease on WhatsApp, Instagram, or phone.
           </p>
           </div>
-          <div className="middleText">
-
-          
 
           <div className="middleText-content">
           
