@@ -143,13 +143,14 @@ const About2: React.FC = React.memo(() => {
           </div>
 
           <div className="middleText-body">
-          <div className="middleText">
-
           <div className="middleText-content-subHeading">
           <p>
           Order with ease on WhatsApp, Instagram, or phone.
           </p>
           </div>
+          <div className="middleText">
+
+          
 
           <div className="middleText-content">
           
@@ -206,7 +207,8 @@ const About2: React.FC = React.memo(() => {
         <div className="middleText2">
           <p>
              <CiPhone  style={{strokeWidth: 1, fill: '#c38576', stroke: '#c38576'}}/>
-             +91 974 2727 643
+             +91 974 2727 643<br></br>+91 909 4727 239
+             
           </p>
         </div>
 

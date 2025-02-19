@@ -16,7 +16,7 @@ const ProductValuesTwo = () => {
   const [nav2, setNav2] = useState<Slider | null>(null);
 
   const imageSliderSettings: Settings = {
-    dots: false,
+    dots: true,
     lazyLoad: "progressive",
     infinite: true,
     speed: 800,

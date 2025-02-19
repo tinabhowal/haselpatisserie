@@ -59,7 +59,7 @@ const Home = () => {
                 transition={{ duration: 1.5 }}
                 viewport={{ once: true, amount: 0.1 }}
               >
-                Personalized Cakes & Healthy Treats in Bangalore 
+                Personalized Cakes <br></br> & <br></br>Healthy Treats in Bangalore 
               </motion.div>
       
               <motion.p

@@ -143,7 +143,8 @@
       }
 
       .trendingDescription p{
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+        margin: 12px 0px;
       }
 
       .trendingNowHeading{

@@ -29,9 +29,9 @@ function App() {
           throw new Error(`Error fetching products: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Fetched data:', data);
+        // console.log('Fetched data:', data);
         dispatch(cakesActions.setCakes(data));
-        console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
+        
       } catch (error) {
         console.error('Error fetching products', error);
       }
