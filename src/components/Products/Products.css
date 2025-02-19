@@ -258,8 +258,9 @@
     font-size: 1.2rem;
     font-family: var(--font-family-main);
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 40px
   }
 
@@ -272,22 +273,19 @@
     font-family: var(--font-family-main);
   }
 
-  .cakeDescription-ul li{
+  .cakeDescription ul li{
     list-style: none;
-    /* display: flex;
-    justify-content: flex-start;
-    flex-direction: column; */
-    /* padding: 0px 60px 0px 60px; */
+    white-space: nowrap;
   }
 
-  /* .cakeDescription-ul{
+
+  .cakeDescription ul{
     display: flex;
-    justify-content:flex-start;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0px 60px 0px 60px;
-    margin: 0 auto;
-  } */
+    justify-content: center;
+    align-items: start;
+    flex-wrap: nowrap;
+  }
   
 
   @media screen and (max-width: 480px){

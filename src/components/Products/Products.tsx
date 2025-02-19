@@ -69,15 +69,17 @@ const cakeDescription = (
       exotic delights like Tiramisu, Pina-Colada, rose pistachio, or nut pralines. We also 
       customize flavors to suit your unique taste.
     </p>
-    <p><strong>Starting at ₹1700/- per kg</strong>, our cakes include:
-      <ul className='cakeDescription-ul'>
-        <li>✨ Fresh flowers for elegance</li>
-        <li>🎨 2D fondant structures for a creative touch</li>
+    <p><strong>Starting at ₹1700/- per kg</strong>, our cakes include:</p>
+    <div className='cakeDescription'>
+      <ul>
+        <li>💐 Fresh flowers for elegance</li>
         <li>📸 Edible prints for personalization</li>
         <li>🟣 Faux balls for added texture</li>
+        <li>🎨 2D fondant structures for a creative touch</li>
       </ul>
-      Prices vary based on design complexity, flavors, and decorations.
-    </p>
+      </div>
+      <p>Prices vary based on design complexity, flavors, and decorations.</p>
+      
     <p>Let us bring your vision to life—order now for an unforgettable celebration! 🎉</p>
   </div>
 );
