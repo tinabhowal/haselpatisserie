@@ -66,7 +66,7 @@ const [y, setY] = useState<number>(200);
                 transition={{ duration: 1.5 }}
                 viewport={{ once: true, amount: 0.1 }}
               >
-                Browse Custom Cakes & Healthy Snacks
+                Browse Custom Cakes <br></br> & <br></br> Healthy Snacks
               </motion.div>
       
               <motion.p

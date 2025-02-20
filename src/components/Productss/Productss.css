@@ -23,7 +23,7 @@
     position: relative;
 }
 
- /*  
+  
 .aboutTop-heading{
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
     font-weight: 400;
     color: var(--main-color);
     font-family: var(--font-family-main);
-    
+    text-align: center; 
     line-height: 1.2;  
     
   
@@ -53,7 +53,7 @@
     line-height: 1.5;
     font-family: var(--font-family-main);
     
-  } */
+  }
 
   .productsss{
     margin-top: 20px;

@@ -220,6 +220,7 @@
   padding: 0;
   color: var(--gray-color);
   transition: color 0.4s ease-in-out;
+  white-space: nowrap;
 }
 
 .middleText2 p a:hover {
