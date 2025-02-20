@@ -49,7 +49,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     }
 
     try{
-        const response = await fetch('http://localhost:8080/message', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/message`, {
             method: 'POST',
             body: data,
         });

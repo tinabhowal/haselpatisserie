@@ -32,6 +32,7 @@ const Products = ({ showBestsellersOnly = false, initialCategory }: ProductsProp
 
    
   const [selectedCategory, setSelectedCategory] = useState<string | null>('All');
+  const [showMore, setShowMore] = useState<boolean>(false);
 
  
 
@@ -62,9 +63,11 @@ const cakeDescription = (
       Make your special occasions even more unforgettable with our bespoke eggless cakes! 
       Our expert bakers craft each sponge from scratch, using only the finest ingredients 
       and no artificial flavorings, stabilizers, or premixes. We ensure moist, fluffy, and 
-      delicious cakes that exceed expectations.
+      delicious cakes that exceed expectations.  {showMore?'':<h4 onClick={() => setShowMore(!showMore)}>...Read on</h4>} 
     </p>
-    <p>
+    {showMore && (
+      <>
+      <p>
       Choose from classic flavors like vanilla, chocolate, and pineapple, or indulge in 
       exotic delights like Tiramisu, Pina-Colada, rose pistachio, or nut pralines. We also 
       customize flavors to suit your unique taste.
@@ -81,6 +84,9 @@ const cakeDescription = (
       <p>Prices vary based on design complexity, flavors, and decorations.</p>
       
     <p>Let us bring your vision to life—order now for an unforgettable celebration! 🎉</p>
+      </>
+    )}
+    
   </div>
 );
 
