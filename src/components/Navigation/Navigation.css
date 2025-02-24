@@ -14,7 +14,7 @@
     z-index: 1000;
     color: white;
     box-sizing: border-box; 
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .navbar-logo {
@@ -101,9 +101,39 @@
 }
 
 .navbar-menu li.active a {
-    /* color: #DB8063;  */
     color: white;
 }
+
+.navbar-menu li{
+    position: relative;
+}
+ 
+
+.products-drawer {
+    position: absolute;  
+    top: 100%; 
+    left: 0; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.products-drawer a {
+    padding: 10px;
+    text-decoration: none;
+    color: #AA624F;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* .products-drawer a:hover {
+    background: #f7f7f7;
+    color: #AA624F;
+} */
+
 
 
 
@@ -130,7 +160,7 @@
         pointer-events: auto; 
         display: flex; 
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: 1rem;
         position: absolute;
@@ -139,10 +169,11 @@
         left: 0;
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.9);
-        min-height: 100%;
+        /* min-height: 100%; */
+        min-height: 100vh;
         margin: 0;
         padding: 4rem;
-        transition: opacity 0.6s ease-in-out;
+        transition: opacity 0.4s ease-in-out;
     }
     
     .navbar-menu li:last-child a {

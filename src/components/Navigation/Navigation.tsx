@@ -11,6 +11,8 @@ import './Navigation.css';
          return location.pathname === path
     }
 
+    const [showDrawer, setShowDrawer] = useState<boolean>(false);
+    
     const [style, setStyle] = useState({
         background: 'transparent',
         backdropFilter: 'none',
@@ -66,15 +68,41 @@ import './Navigation.css';
                 className="navbar" 
                 style={style}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: 1 }} 
                 transition={{ duration: 0.6 }}
             >
                 <div className="navbar-logo" style={navLogoFont}>Hazel Patisserie</div>
                 <button className='hamburger' onClick={toggleMenu} aria-label='Toggle Menu' style={hamburgerColor}> {menuOpen ? '✖' : '☰'} </button>
-                <ul className={`navbar-menu  ${menuOpen ? 'open' : ''}`} style={{'--before-color': spanBeforeColor} as React.CSSProperties}>
+                <ul className={`navbar-menu  ${menuOpen ? 'open' : ''}`} 
+                style={{'--before-color': spanBeforeColor} as React.CSSProperties}
+                >
                     <li className={isActive("/") ? "active" : ''}><Link to="/" style={{color: hamburgerColor.color}} onClick={() => window.scrollTo(0,0)}><span>Home</span></Link></li>
                     <li className={isActive("/contact") ? "active" : ''}><Link to="/contact"style={{color:hamburgerColor.color}} onClick={() => window.scrollTo(0,0)}><span>Contact</span></Link></li>
-                    <li className={isActive("/products") ? "active" : ''}><Link to="/products" style={{color:hamburgerColor.color}} onClick={() => window.scrollTo(0,0)}><span>Products</span></Link></li>
+                    <li 
+                    className={isActive("/products") ? "active" : ''}
+                    onMouseEnter={() => setShowDrawer(true)}
+                    onMouseLeave={() => setShowDrawer(false)}
+                    >
+                        <Link to="/products" style={{color:hamburgerColor.color}} onClick={() => window.scrollTo(0,0)}><span>Products</span></Link>
+
+                        {showDrawer && (
+                            <motion.div 
+                            className="products-drawer"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={showDrawer ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+                            transition={{ duration: 0.6 }}
+                            style={{ pointerEvents: showDrawer ? "auto" : "none" , '--before-color': spanBeforeColor} as React.CSSProperties} 
+                            >
+                                <Link to = {`/products?categories=${encodeURIComponent('Cakes')}`} onClick={toggleMenu} style={{color: hamburgerColor.color}} ><span>Cakes</span></Link>
+                                <Link to = {`/products?categories=${encodeURIComponent('Cookies')}`} onClick={toggleMenu} style={{color: hamburgerColor.color}} ><span>Cookies</span></Link>
+                                <Link to = {`/products?categories=${encodeURIComponent('Crackers')}`} onClick={toggleMenu} style={{color: hamburgerColor.color}} ><span>Crackers</span></Link>
+                                <Link to = {`/products?categories=${encodeURIComponent('Dessert')}`} onClick={toggleMenu} style={{color: hamburgerColor.color}} ><span>Dessert</span></Link>
+                                <Link to = {`/products?categories=${encodeURIComponent('Healthy Bites')}`} onClick={toggleMenu} style={{color: hamburgerColor.color}} ><span>Healthy Bites</span></Link>
+                                <Link to = {`/products?categories=${encodeURIComponent('Pet Goodies')}`} onClick={toggleMenu} style={{color: hamburgerColor.color}} ><span>Pet Goodies</span></Link>
+                                <Link to = {`/products?categories=${encodeURIComponent('Hampers')}`} onClick={toggleMenu} style={{color: hamburgerColor.color}} ><span>Hampers</span></Link>
+                            </motion.div>
+                        )}
+                        </li>
                 </ul>
             </motion.nav>
             <div ref={ref} style={{ position: 'absolute', top: '10vh' }}></div>
