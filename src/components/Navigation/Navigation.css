@@ -91,7 +91,8 @@
 }
 
 
-.navbar-menu li.active a span::before {
+/* .navbar-menu li.active a span::before { */
+.navbar-menu > li.active > a span::before{
     width: 100%; /* Full width for active link */
     background-color: var(--before-color, white);/* Same as hover color */
     transition: color 0.4s ease-in-out;
@@ -133,6 +134,7 @@
     background: #f7f7f7;
     color: #AA624F;
 } */
+
 
 
 

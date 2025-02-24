@@ -193,23 +193,35 @@ const Form = () => {
     }));
   };
 
+  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files) {
+  //     const newFiles = Array.from(e.target.files);
+
+  //     setFiles((prevFiles) =>{
+  //       if(prevFiles.length + newFiles.length > 3){
+  //         alert('You can add maximum three images');
+  //         return prevFiles;
+  //       }
+  //       return[...prevFiles, ...newFiles]
+  //     });
+  //   }
+  // };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
+    if(e.target.files){
       const newFiles = Array.from(e.target.files);
 
-      setFiles((prevFiles) =>{
-        if(prevFiles.length + newFiles.length > 3){
-          alert('You can add maximum three images');
-          return prevFiles;
+      if(newFiles.length > 3){
+        alert('You can only add up to three images. Please select your images again.');
+        setFiles([]);
+        if(fileInputRef.current){
+          fileInputRef.current.value = ''
         }
-        return[...prevFiles, ...newFiles]
-      });
-
-      // if(fileInputRef.current){
-      //   fileInputRef.current.value = '';
-      // }
+      }else{
+        setFiles(newFiles)
+      }
     }
-  };
+  }
 
   useEffect(() => {
     if(files.length === 0 && fileInputRef.current){
