@@ -50,27 +50,47 @@ const tokenSlice = createSlice({
 
 
 
-  interface CakeState {
-    cakes: Cake[] 
-  }
+//   interface CakeState {
+//     cakes: Cake[] 
+//   }
 
-  const cakesFromLocalStorage = localStorage.getItem('cakes');
+//   const cakesFromLocalStorage = localStorage.getItem('cakes');
 
-  const initialCakeState : CakeState = {
-    cakes: cakesFromLocalStorage? JSON.parse(cakesFromLocalStorage) : []
-  };
+//   const initialCakeState : CakeState = {
+//     cakes: cakesFromLocalStorage? JSON.parse(cakesFromLocalStorage) : []
+//   };
 
-  const cakesSlice = createSlice({
+
+
+//   const cakesSlice = createSlice({
+//     name: 'cakes',
+//     initialState: initialCakeState,
+//     reducers: {
+//         setCakes: (state, action:PayloadAction<Cake[]>) => {
+//             state.cakes = action.payload;
+//             localStorage.setItem('cakes', JSON.stringify(action.payload))
+//         }
+//     }
+//   })
+
+const cakesFromLocalStorage = localStorage.getItem('cakes');
+const initialCakeState: Cake[] = cakesFromLocalStorage
+? JSON.parse(cakesFromLocalStorage).map((cake:Cake) => ({
+    ...cake,
+    ImagePath: Array.isArray(cake.ImagePath) ? cake.ImagePath : [cake.ImagePath]
+})) : []
+
+
+const cakesSlice = createSlice({
     name: 'cakes',
     initialState: initialCakeState,
     reducers: {
-        setCakes: (state, action:PayloadAction<Cake[]>) => {
-            state.cakes = action.payload;
-            localStorage.setItem('cakes', JSON.stringify(action.payload))
+        setCakes : (state, action:PayloadAction<Cake[]>) => {
+            localStorage.setItem('cakes', JSON.stringify(action.payload));
+            return action.payload;
         }
     }
-  })
-
+})
 
 const store = configureStore({
     reducer: {

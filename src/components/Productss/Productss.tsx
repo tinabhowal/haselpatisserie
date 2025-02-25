@@ -9,6 +9,7 @@ import smallProductssBg from '../../images/productssSmallBg.jpg';
 import { useLocation } from 'react-router-dom';
 import Bottom from '../Bottom/Bottom';
 import Footer from '../Footer/Footer';
+import ProductCard from '../ProductCard/ProductCard';
 
 const Productss = () => {
 
@@ -92,6 +93,7 @@ const [y, setY] = useState<number>(200);
             viewport={{ once: true, amount: 0.01 }}    
         >
       {category? <Products initialCategory={category} /> : <Products />}
+      {/* <ProductCard /> */}
       
       </motion.section>
 

@@ -41,7 +41,7 @@
     perspective: 1000px;
     position: relative;
     width: 300px;
-    height: 380px;
+    height: 400px;
     margin: 20px;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -97,7 +97,7 @@
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
     border-radius: 25px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transform: scale(1.05);
   }
 
@@ -122,7 +122,7 @@
  
   
   .productTilesDescription {
-    padding: 10px;
+    padding-bottom: 5px;
   }
   
   .categoryButtons{
@@ -286,6 +286,32 @@
     align-items: start;
     flex-wrap: nowrap;
     padding: 0;
+  }
+
+
+
+  
+
+  .productTilesImage .slick-arrow.slick-prev{
+    left: 25px;
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 100000;
+    width: 40px;
+    height: 40px;
+  }
+
+  .productTilesImage .slick-arrow.slick-next{
+    right: 25px;
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 100000;
+    width: 40px;
+    height: 40px;
+  }
+
+  .productTilesImage .slick-prev:before, .productTilesImage .slick-next:before{
+    font-size: 40px;
   }
   
 

@@ -12,25 +12,38 @@ export interface Token {
     token : string | null
 }
 
-export interface Cake {
+// export interface Cake {
     
-    Name: string,
-    Description: string,
-    Ingredients: string[],
-    // Theme: string[],
-    ImagePath: string,
-    Veg: boolean,
-    BestSeller: boolean,
-    Category: string,
-    Trending: boolean,
-    Theme: string
-    ul: {
-        img1: string;
-        img2: string;
-        img3: string;
-    };
+//     Name: string,
+//     Description: string,
+//     Ingredients: string[],
+//     // Theme: string[],
+//     ImagePath: string[],
+//     Veg: boolean,
+//     BestSeller: boolean,
+//     Category: string,
+//     Trending: boolean,
+//     Theme: string
+//     ul?: {
+//         img1: string;
+//         img2: string;
+//         img3: string;
+//     };
 
-}
+// }
+
+
+export interface Cake {
+    _id: string;
+    Name: string;
+    Description: string;
+    Ingredients: string;
+    Theme: string;
+    ImagePath: string[];
+    Veg: boolean;
+    BestSeller: boolean;
+    Category: string;
+  }
 
 
 export  interface productType {

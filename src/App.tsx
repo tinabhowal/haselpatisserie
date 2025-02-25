@@ -29,7 +29,7 @@ function App() {
           throw new Error(`Error fetching products: ${response.status}`);
         }
         const data = await response.json();
-        // console.log('Fetched data:', data);
+        console.log('Fetched data:', data);
         dispatch(cakesActions.setCakes(data));
         
       } catch (error) {
