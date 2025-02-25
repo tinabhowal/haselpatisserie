@@ -54,8 +54,15 @@ import './Navigation.css';
             setNavLogoFont({fontSize: window.innerWidth <= 768? '2rem' :'2rem', color: '#AA624F'})
             setHamburgerColor({color:'#AA624F'})
             setSpanBeforeColor('#AA624F');
+        
         }
     }, [isInView]);
+
+    useEffect(() => {
+        if(window.innerWidth <=768){
+            setShowDrawer(true);
+        }
+    },[])
 
     const toggleMenu = () => {
         setMenuOpen((prev) => !prev);
